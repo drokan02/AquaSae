@@ -207,7 +207,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(pnlMenu, gridBagConstraints);
 
         jPanel2.setBackground(new java.awt.Color(38, 86, 186));
-        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel2MouseDragged(evt);
@@ -329,13 +329,13 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
-        x = evt.getX();
-        y = evt.getY();
+        //x = evt.getX();
+        //y = evt.getY();
     }//GEN-LAST:event_jPanel2MousePressed
 
     private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
-        Point mueve = MouseInfo.getPointerInfo().getLocation();
-        this.setLocation(mueve.x - x, mueve.y - y);
+        //Point mueve = MouseInfo.getPointerInfo().getLocation();
+        //this.setLocation(mueve.x - x, mueve.y - y);
     }//GEN-LAST:event_jPanel2MouseDragged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
