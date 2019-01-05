@@ -5,7 +5,10 @@
  */
 package Controlador;
 
+import Vista.Clientes.FormCliente;
+import Vista.Pedido.FormPedido;
 import Vista.Principal;
+import Vista.Productos.FormProducto;
 import Vista.VistaInicio;
 import java.awt.Color;
 import static java.awt.Frame.ICONIFIED;
@@ -46,14 +49,22 @@ public class MenuController implements ActionListener,WindowListener{
         }
         
         if(e.getSource() == principal.btClientes){
+            FormCliente formCli = new FormCliente();
+            cambiarPanel(formCli);
+            ClienteController cliCont = new ClienteController(formCli);
             seleccionarBoton(principal.btClientes);
+            
         }
         
         if(e.getSource() == principal.btProductos){
+            FormProducto formProd = new FormProducto();
+            cambiarPanel(formProd);
             seleccionarBoton(principal.btProductos);
         }
         
         if(e.getSource() == principal.btPedidos){
+            FormPedido formPed = new FormPedido();
+            cambiarPanel(formPed);
             seleccionarBoton(principal.btPedidos);
         }
         
