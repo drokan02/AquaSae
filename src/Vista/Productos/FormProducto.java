@@ -30,140 +30,85 @@ public class FormProducto extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel7 = new javax.swing.JLabel();
-        txtApellido = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        txtTitulo = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        txtNombre1 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
+        txtApellido = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setFocusTraversalPolicyProvider(true);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(128, 128, 131));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("PRODUCTOS");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 77));
+        txtTitulo.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
+        txtTitulo.setForeground(new java.awt.Color(128, 128, 131));
+        txtTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtTitulo.setText("REGISTRAR PRODUCTO");
+        add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 77));
 
-        txtApellido.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 450, -1));
-
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel1.setText("Buscar:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 140, -1, -1));
+        txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 640, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel2.setText("Costo:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
-
-        txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 140, 410, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel3.setText("Existencia:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel5.setText("Tipo:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, -1, -1));
 
         txtDireccion.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 450, -1));
+        add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 640, -1));
 
         txtTelefono.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 450, -1));
-
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Nombre", "Apellido", "Direccion", "Zona", "Telefono"
-            }
-        ));
-        jTable1.setAutoscrolls(false);
-        jTable1.setColumnSelectionAllowed(true);
-        jScrollPane1.setViewportView(jTable1);
-
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, 920, 730));
-
-        txtNombre1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 450, -1));
-
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel6.setText("PRODUCTO");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 550, -1));
+        add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 640, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel8.setText("Nombre:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Cancelar");
-        jButton1.setBorder(new javax.swing.border.MatteBorder(null));
-        jButton1.setFocusPainted(false);
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 550, 30));
+        btnCancelar.setBackground(new java.awt.Color(102, 102, 102));
+        btnCancelar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(new javax.swing.border.MatteBorder(null));
+        btnCancelar.setFocusPainted(false);
+        add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 540, 640, 30));
 
-        jButton2.setBackground(new java.awt.Color(51, 51, 255));
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Registrar");
-        jButton2.setBorder(new javax.swing.border.MatteBorder(null));
-        jButton2.setFocusPainted(false);
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 550, 30));
+        btnRegistrar.setBackground(new java.awt.Color(51, 51, 255));
+        btnRegistrar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrar.setText("Registrar");
+        btnRegistrar.setBorder(new javax.swing.border.MatteBorder(null));
+        btnRegistrar.setFocusPainted(false);
+        add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 640, 30));
+
+        txtApellido.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 640, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    public javax.swing.JButton btnCancelar;
+    public javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     public javax.swing.JTextField txtApellido;
     public javax.swing.JTextField txtDireccion;
     public javax.swing.JTextField txtNombre;
-    public javax.swing.JTextField txtNombre1;
     public javax.swing.JTextField txtTelefono;
+    public javax.swing.JLabel txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

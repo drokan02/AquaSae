@@ -6,10 +6,14 @@
 package Controlador;
 
 import Vista.Clientes.FormCliente;
+import Vista.Clientes.ListaCliente;
 import Vista.Pedido.FormPedido;
+import Vista.Pedido.ListaPedido;
 import Vista.Principal;
 import Vista.Productos.FormProducto;
+import Vista.Productos.ListaProductos;
 import Vista.VistaInicio;
+import Vista.Zonas.ListaZonas;
 import java.awt.Color;
 import static java.awt.Frame.ICONIFIED;
 import static java.awt.Frame.MAXIMIZED_BOTH;
@@ -48,23 +52,29 @@ public class MenuController implements ActionListener,WindowListener{
             cambiarPanel(inicio);
         }
         
+        if(e.getSource() == principal.btZonas){
+            ListaZonas listZona = new ListaZonas();
+            cambiarPanel(listZona);
+            seleccionarBoton(principal.btZonas);  
+        }
+        
         if(e.getSource() == principal.btClientes){
-            FormCliente formCli = new FormCliente();
-            cambiarPanel(formCli);
-            ClienteController cliCont = new ClienteController(formCli);
+            ListaCliente listCli = new ListaCliente();
+            cambiarPanel(listCli);
+            ClienteController cliCont = new ClienteController(listCli);
             seleccionarBoton(principal.btClientes);
             
         }
         
         if(e.getSource() == principal.btProductos){
-            FormProducto formProd = new FormProducto();
-            cambiarPanel(formProd);
+            ListaProductos listProd = new ListaProductos();
+            cambiarPanel(listProd);
             seleccionarBoton(principal.btProductos);
         }
         
         if(e.getSource() == principal.btPedidos){
-            FormPedido formPed = new FormPedido();
-            cambiarPanel(formPed);
+            ListaPedido listPed = new ListaPedido();
+            cambiarPanel(listPed);
             seleccionarBoton(principal.btPedidos);
         }
         
@@ -121,6 +131,7 @@ public class MenuController implements ActionListener,WindowListener{
      private void agregarEventos(){
         principal.btInicio.addActionListener(this);
        // principal.btInicio.addMouseListener(this);
+       principal.btZonas.addActionListener(this);
         principal.btClientes.addActionListener(this);
        // principal.btClientes.addMouseListener(this);
         principal.btPedidos.addActionListener(this);
@@ -130,6 +141,7 @@ public class MenuController implements ActionListener,WindowListener{
         principal.btReporte.addActionListener(this);
        // principal.btReporte.addMouseListener(this);
        principal.btCerrar.addActionListener(this);
+       
        principal.btMinim.addActionListener(this);
        principal.addWindowListener(this);
     }
@@ -160,14 +172,19 @@ public class MenuController implements ActionListener,WindowListener{
         principal.btReporte.setColorPressed(new Color(204,204,204));
         principal.btReporte.setSelected(false);
         
+        principal.btZonas.setColorNormal(new Color(239,238,244));
+        principal.btZonas.setColorHover(new Color(204,204,204));
+        principal.btZonas.setColorPressed(new Color(204,204,204));
+        principal.btZonas.setSelected(false);
+        
         bt.setColorNormal(new Color(204,204,204));
         bt.setColorHover(new Color(204,204,204));
         bt.setColorPressed(new Color(204,204,204));
         bt.setSelected(true);
     }
     
-    public void cambiarPanel(JPanel content) {
-        JPanel container = principal.pnlPrincipal;
+    public static void cambiarPanel(JPanel content) {
+        JPanel container = Principal.pnlPrincipal;
         container.removeAll();
         container.revalidate();
         container.repaint();

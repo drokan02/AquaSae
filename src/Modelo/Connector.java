@@ -9,7 +9,7 @@ public class Connector {
 
   protected Connection conexion;
   private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-  private static final String DB_URL = "jdbc:mysql://localhost/investigaciones";
+  private static final String DB_URL = "jdbc:mysql://localhost/aquasae";
   private final String user = "root";
   private final String pass = "";
 
@@ -20,6 +20,7 @@ public class Connector {
       Class.forName(JDBC_DRIVER);
       conexion = DriverManager.getConnection(DB_URL, user, pass);
     } catch (ClassNotFoundException ex) {
+         System.out.print(ex);
     } catch (SQLException ex) {
       String error = "Error: " + Errors.errorMessage(ex.getErrorCode(),
               ex.getMessage());

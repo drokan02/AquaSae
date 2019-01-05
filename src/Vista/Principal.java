@@ -46,8 +46,9 @@ public class Principal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         btProductos = new rsbuttom.RSButtonMetro();
         btClientes = new rsbuttom.RSButtonMetro();
-        btReporte = new rsbuttom.RSButtonMetro();
         btPedidos = new rsbuttom.RSButtonMetro();
+        btReporte = new rsbuttom.RSButtonMetro();
+        btZonas = new rsbuttom.RSButtonMetro();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -65,6 +66,7 @@ public class Principal extends javax.swing.JFrame {
 
         pnlMenu.setBackground(new java.awt.Color(239, 238, 244));
         pnlMenu.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 5, 0, 0, new java.awt.Color(239, 238, 244)));
+        pnlMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btInicio.setForeground(new java.awt.Color(128, 128, 131));
         btInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inicio.png"))); // NOI18N
@@ -78,6 +80,7 @@ public class Principal extends javax.swing.JFrame {
         btInicio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btInicio.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btInicio.setIconTextGap(25);
+        pnlMenu.add(btInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 260, 50));
 
         jPanel4.setBackground(new java.awt.Color(239, 238, 244));
 
@@ -97,7 +100,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 190, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -109,6 +112,8 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addContainerGap())
         );
+
+        pnlMenu.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 258, -1));
 
         btProductos.setBackground(new java.awt.Color(239, 238, 244));
         btProductos.setForeground(new java.awt.Color(128, 128, 131));
@@ -123,6 +128,7 @@ public class Principal extends javax.swing.JFrame {
         btProductos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btProductos.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btProductos.setIconTextGap(19);
+        pnlMenu.add(btProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 260, 50));
 
         btClientes.setBackground(new java.awt.Color(239, 238, 244));
         btClientes.setForeground(new java.awt.Color(128, 128, 131));
@@ -137,20 +143,7 @@ public class Principal extends javax.swing.JFrame {
         btClientes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btClientes.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btClientes.setIconTextGap(25);
-
-        btReporte.setBackground(new java.awt.Color(239, 238, 244));
-        btReporte.setForeground(new java.awt.Color(128, 128, 131));
-        btReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/reportes.png"))); // NOI18N
-        btReporte.setText("Reporte");
-        btReporte.setColorHover(new java.awt.Color(204, 204, 204));
-        btReporte.setColorNormal(new java.awt.Color(239, 238, 244));
-        btReporte.setColorPressed(new java.awt.Color(204, 204, 204));
-        btReporte.setColorTextHover(new java.awt.Color(128, 128, 131));
-        btReporte.setColorTextNormal(new java.awt.Color(128, 128, 131));
-        btReporte.setColorTextPressed(new java.awt.Color(128, 128, 131));
-        btReporte.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btReporte.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btReporte.setIconTextGap(19);
+        pnlMenu.add(btClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 260, 50));
 
         btPedidos.setBackground(new java.awt.Color(239, 238, 244));
         btPedidos.setForeground(new java.awt.Color(128, 128, 131));
@@ -165,37 +158,42 @@ public class Principal extends javax.swing.JFrame {
         btPedidos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btPedidos.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btPedidos.setIconTextGap(19);
+        pnlMenu.add(btPedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 260, 50));
 
-        javax.swing.GroupLayout pnlMenuLayout = new javax.swing.GroupLayout(pnlMenu);
-        pnlMenu.setLayout(pnlMenuLayout);
-        pnlMenuLayout.setHorizontalGroup(
-            pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(pnlMenuLayout.createSequentialGroup()
-                .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        pnlMenuLayout.setVerticalGroup(
-            pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlMenuLayout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(btClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(btProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(btPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(btReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(204, 204, 204))
-        );
+        btReporte.setBackground(new java.awt.Color(239, 238, 244));
+        btReporte.setForeground(new java.awt.Color(128, 128, 131));
+        btReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/reportes.png"))); // NOI18N
+        btReporte.setText("Reporte");
+        btReporte.setColorHover(new java.awt.Color(204, 204, 204));
+        btReporte.setColorNormal(new java.awt.Color(239, 238, 244));
+        btReporte.setColorPressed(new java.awt.Color(204, 204, 204));
+        btReporte.setColorTextHover(new java.awt.Color(128, 128, 131));
+        btReporte.setColorTextNormal(new java.awt.Color(128, 128, 131));
+        btReporte.setColorTextPressed(new java.awt.Color(128, 128, 131));
+        btReporte.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btReporte.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btReporte.setIconTextGap(19);
+        btReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btReporteActionPerformed(evt);
+            }
+        });
+        pnlMenu.add(btReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 260, 50));
+
+        btZonas.setBackground(new java.awt.Color(239, 238, 244));
+        btZonas.setForeground(new java.awt.Color(128, 128, 131));
+        btZonas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Map_Marker_50px_1.png"))); // NOI18N
+        btZonas.setText("Zonas");
+        btZonas.setColorHover(new java.awt.Color(204, 204, 204));
+        btZonas.setColorNormal(new java.awt.Color(239, 238, 244));
+        btZonas.setColorPressed(new java.awt.Color(204, 204, 204));
+        btZonas.setColorTextHover(new java.awt.Color(128, 128, 131));
+        btZonas.setColorTextNormal(new java.awt.Color(128, 128, 131));
+        btZonas.setColorTextPressed(new java.awt.Color(128, 128, 131));
+        btZonas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btZonas.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btZonas.setIconTextGap(25);
+        pnlMenu.add(btZonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 260, 50));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -347,6 +345,10 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReporteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btReporteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -395,6 +397,7 @@ public class Principal extends javax.swing.JFrame {
     public rsbuttom.RSButtonMetro btPedidos;
     public rsbuttom.RSButtonMetro btProductos;
     public rsbuttom.RSButtonMetro btReporte;
+    public rsbuttom.RSButtonMetro btZonas;
     public javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -405,6 +408,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pnlCentro;
     private javax.swing.JPanel pnlMenu;
-    public javax.swing.JPanel pnlPrincipal;
+    public static javax.swing.JPanel pnlPrincipal;
     // End of variables declaration//GEN-END:variables
 }
