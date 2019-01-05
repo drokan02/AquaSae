@@ -17,8 +17,6 @@ public class Validador {
         char car = e.getKeyChar();
         if(!Character.isLetter(car)){
             e.consume();
-        }else{
-            System.out.println((int)car);
         }
     }
     
@@ -34,6 +32,13 @@ public class Validador {
         if(Character.isLetter(car) || Character.isDigit(car)){
             
         }else{
+            e.consume();
+        }
+    }
+    
+    public static void validarLetrasMasEspacio(KeyEvent e){
+        char car = e.getKeyChar();
+        if(!Character.isLetter(car) && car != KeyEvent.VK_SPACE){
             e.consume();
         }
     }

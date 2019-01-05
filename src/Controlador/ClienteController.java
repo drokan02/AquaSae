@@ -6,27 +6,53 @@
 package Controlador;
 
 import Vista.Clientes.FormCliente;
+import Vista.Clientes.ListaCliente;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author DroKaN
  */
-public class ClienteController implements KeyListener{
+public class ClienteController implements KeyListener,ActionListener{
+    private final ListaCliente listCliente;
     private final FormCliente formCliente;
-    public ClienteController(FormCliente formCliente){
-        this.formCliente = formCliente;
+    public ClienteController(ListaCliente listCliente){
+        this.listCliente = listCliente;
+        this.formCliente = new FormCliente();
         agregarEventos();
     }
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == listCliente.btnCliente){
+            formCliente.txtTitulo.setText("REGISTRAR CLIENTE");
+            MenuController.cambiarPanel(formCliente);
+        }
+        
+        if(e.getSource()== formCliente.btnRegistrar){
+            registrarCliente();
+            MenuController.cambiarPanel(listCliente);
+        }
+        
+        if(e.getSource() == formCliente.btnCancelar){
+             MenuController.cambiarPanel(listCliente);
+        }
+    }
+    
     @Override
     public void keyTyped(KeyEvent ke) {
+        
         if(ke.getSource() == formCliente.txtNombre){
-           Validador.validarTexto(ke);
+           Validador.validarLetrasMasEspacio(ke);
         }
         
         if(ke.getSource() == formCliente.txtApellido){
-            Validador.validarTexto(ke);
+            Validador.validarLetrasMasEspacio(ke);
         }
         
         if(ke.getSource() == formCliente.txtDireccion){
@@ -41,7 +67,8 @@ public class ClienteController implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent ke) {
-
+       
+        
     }
 
     @Override
@@ -49,11 +76,23 @@ public class ClienteController implements KeyListener{
 
     }
     
-    private void agregarEventos(){
+    
+     private void agregarEventos(){
         formCliente.txtNombre.addKeyListener(this);
         formCliente.txtApellido.addKeyListener(this);
         formCliente.txtDireccion.addKeyListener(this);
         formCliente.txtTelefono.addKeyListener(this);
+        formCliente.btnCancelar.addActionListener(this);
+        formCliente.btnRegistrar.addActionListener(this);
+        listCliente.btnCliente.addActionListener(this);
+        formCliente.setFocusTraversalPolicy(new FocusTraversalOnArray(
+                new Component[]{formCliente.txtNombre, formCliente.txtApellido,
+                    formCliente.txtDireccion,formCliente.comZona,formCliente.txtTelefono,
+                })
+        );
     }
-    
+     
+    private void registrarCliente(){
+        
+    }
 }

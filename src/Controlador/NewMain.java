@@ -1,14 +1,15 @@
 
 package Controlador;
 
+import Modelo.Connector;
 import Vista.Principal;
 
 public class NewMain {
 
     public static void main(String[] args) {
-          Principal view = new Principal();
-          MenuController controller = new MenuController(view);
-          controller.mostrar();
+         Principal view = new Principal();
+         MenuController controller = new MenuController(view);
+         controller.mostrar();
     }
     
 }
