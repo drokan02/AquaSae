@@ -29,11 +29,12 @@ public class ListaPedido extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jstab = new rojerusan.RSTableMetroBeanInfo();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jsClientes = new javax.swing.JScrollPane();
+        jtClientes = new rojerusan.RSTableMetro();
         btnCliente = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -52,37 +53,33 @@ public class ListaPedido extends javax.swing.JPanel {
         txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 410, -1));
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jsClientes.setBorder(null);
+
+        jtClientes = new rojerusan.RSTableMetro(){
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        jtClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Apellido", "Direccion", "Zona", "Telefono"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setAutoscrolls(false);
-        jTable1.setColumnSelectionAllowed(true);
-        jScrollPane1.setViewportView(jTable1);
+        jtClientes.setFuenteFilas(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jtClientes.setGridColor(new java.awt.Color(102, 102, 102));
+        jtClientes.setGrosorBordeFilas(0);
+        jtClientes.setGrosorBordeHead(0);
+        jtClientes.setRowHeight(30);
+        jtClientes.getTableHeader().setReorderingAllowed(false);
+        jsClientes.setViewportView(jtClientes);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 1280, 730));
+        add(jsClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 210, 1280, 740));
 
         btnCliente.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Missed_Call_50px_2.png"))); // NOI18N
@@ -104,8 +101,9 @@ public class ListaPedido extends javax.swing.JPanel {
     public javax.swing.JButton btnCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jsClientes;
+    public rojerusan.RSTableMetroBeanInfo jstab;
+    public rojerusan.RSTableMetro jtClientes;
     public javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
