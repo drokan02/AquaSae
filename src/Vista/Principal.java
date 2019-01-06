@@ -38,6 +38,9 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        btEditar = new javax.swing.JButton();
+        btTelefonos = new javax.swing.JButton();
+        btEliminar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         pnlMenu = new javax.swing.JPanel();
         btInicio = new rsbuttom.RSButtonMetro();
@@ -57,6 +60,27 @@ public class Principal extends javax.swing.JFrame {
         pnlCentro = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         pnlPrincipal = new javax.swing.JPanel();
+
+        btEditar.setBackground(new java.awt.Color(255, 51, 0));
+        btEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Edit_Property_26px.png"))); // NOI18N
+        btEditar.setBorderPainted(false);
+        btEditar.setContentAreaFilled(false);
+        btEditar.setFocusPainted(false);
+        btEditar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Edit_Property_26px.png"))); // NOI18N
+
+        btTelefonos.setBackground(new java.awt.Color(255, 51, 0));
+        btTelefonos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Office_Phone_26px.png"))); // NOI18N
+        btTelefonos.setBorderPainted(false);
+        btTelefonos.setContentAreaFilled(false);
+        btTelefonos.setFocusPainted(false);
+        btTelefonos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Office_Phone_26px.png"))); // NOI18N
+
+        btEliminar.setBackground(new java.awt.Color(255, 51, 0));
+        btEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Close_Window_26px_5.png"))); // NOI18N
+        btEliminar.setBorderPainted(false);
+        btEliminar.setContentAreaFilled(false);
+        btEliminar.setFocusPainted(false);
+        btEliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Close_Window_26px_5.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -392,11 +416,14 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btCerrar;
     public rsbuttom.RSButtonMetro btClientes;
+    public static javax.swing.JButton btEditar;
+    public static javax.swing.JButton btEliminar;
     public rsbuttom.RSButtonMetro btInicio;
     public javax.swing.JButton btMinim;
     public rsbuttom.RSButtonMetro btPedidos;
     public rsbuttom.RSButtonMetro btProductos;
     public rsbuttom.RSButtonMetro btReporte;
+    public static javax.swing.JButton btTelefonos;
     public rsbuttom.RSButtonMetro btZonas;
     public javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

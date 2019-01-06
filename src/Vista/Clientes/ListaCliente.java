@@ -30,12 +30,36 @@ public class ListaCliente extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btEditar = new javax.swing.JButton();
+        btTelefonos = new javax.swing.JButton();
+        btEliminar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jsClientes = new javax.swing.JScrollPane();
+        jtClientes = new rojerusan.RSTableMetro();
         txtNombre = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         btnCliente = new javax.swing.JButton();
+
+        btEditar.setBackground(new java.awt.Color(255, 51, 0));
+        btEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Edit_Property_26px.png"))); // NOI18N
+        btEditar.setBorderPainted(false);
+        btEditar.setContentAreaFilled(false);
+        btEditar.setFocusPainted(false);
+        btEditar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Edit_Property_26px.png"))); // NOI18N
+
+        btTelefonos.setBackground(new java.awt.Color(255, 51, 0));
+        btTelefonos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Office_Phone_26px.png"))); // NOI18N
+        btTelefonos.setBorderPainted(false);
+        btTelefonos.setContentAreaFilled(false);
+        btTelefonos.setFocusPainted(false);
+        btTelefonos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Office_Phone_26px.png"))); // NOI18N
+
+        btEliminar.setBackground(new java.awt.Color(255, 51, 0));
+        btEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Close_Window_26px_5.png"))); // NOI18N
+        btEliminar.setBorderPainted(false);
+        btEliminar.setContentAreaFilled(false);
+        btEliminar.setFocusPainted(false);
+        btEliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Close_Window_26px_5.png"))); // NOI18N
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -50,40 +74,36 @@ public class ListaCliente extends javax.swing.JPanel {
         jLabel1.setText("Buscar:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, -1, -1));
 
-        txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 410, -1));
+        jsClientes.setBorder(null);
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtClientes = new rojerusan.RSTableMetro(){
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        jtClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Apellido", "Direccion", "Zona", "Telefono"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setAutoscrolls(false);
-        jTable1.setColumnSelectionAllowed(true);
-        jScrollPane1.setViewportView(jTable1);
+        jtClientes.setFuenteFilas(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jtClientes.setGridColor(new java.awt.Color(102, 102, 102));
+        jtClientes.setGrosorBordeFilas(0);
+        jtClientes.setGrosorBordeHead(0);
+        jtClientes.setRowHeight(30);
+        jtClientes.getTableHeader().setReorderingAllowed(false);
+        jsClientes.setViewportView(jtClientes);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 1280, 730));
+        add(jsClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 210, 1280, 740));
+
+        txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 410, -1));
 
         btnCliente.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Add_User_Male_50px.png"))); // NOI18N
@@ -102,11 +122,14 @@ public class ListaCliente extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btEditar;
+    public javax.swing.JButton btEliminar;
+    public javax.swing.JButton btTelefonos;
     public javax.swing.JButton btnCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jsClientes;
+    public rojerusan.RSTableMetro jtClientes;
     public javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
