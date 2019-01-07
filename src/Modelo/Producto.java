@@ -5,10 +5,72 @@
  */
 package Modelo;
 
+import java.util.Date;
+
 /**
  *
  * @author DroKaN
  */
 public class Producto {
+    private int id;
+    private String nombre;
+    private String descripcion;
+    private Categoria categoria;
+    private double precio;
+    private int stock;
+    private Date fecha;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+    
     
 }
