@@ -9,24 +9,33 @@ package Modelo;
  *
  * @author DroKaN
  */
-public class Zona {
+public class Telefono {
     private int id;
-    private String nombre;
+    private int cliente_id;
+    private int telefono;
 
     public int getId() {
         return id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public int getCliente_id() {
+        return cliente_id;
+    }
+
+    public int getTelefono() {
+        return telefono;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setCliente_id(int cliente_id) {
+        this.cliente_id = cliente_id;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
     }
     
     
