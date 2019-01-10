@@ -5,6 +5,9 @@
  */
 package Controlador;
 
+import Modelo.Cliente;
+import Modelo.Telefono;
+import Modelo.Zona;
 import Vista.Clientes.FormCliente;
 import Vista.Clientes.ListaCliente;
 import Vista.Principal;
@@ -15,7 +18,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
@@ -135,9 +140,16 @@ public class ClienteController implements KeyListener,ActionListener,MouseListen
         formCliente.setFocusTraversalPolicy(new FocusTraversalOnArray(
                 new Component[]{formCliente.txtNombre, formCliente.txtApellido,
                     formCliente.txtDireccion,formCliente.comZona,formCliente.txtTelefono,
+                    formCliente.txtTelefono1,formCliente.txtTelefono2,formCliente.txtTelefono3,
+                    formCliente.txtTelefono4
                 })
         );
+        agregarZonas();
     }
+     
+     private void agregarZonas(){
+         
+     }
     //llenamos la tabla con datos de la base de datos
     private void llenarTabla(){
         
@@ -179,8 +191,68 @@ public class ClienteController implements KeyListener,ActionListener,MouseListen
     }
     
     private void registrarCliente(){
-      
+        Cliente cli = nuevoCliente();
+        
+    }
+    private Cliente nuevoCliente(){
+        Cliente cli = new Cliente();
+        cli.setNombre(getNombre());
+        cli.setApellidos(getApellido());
+        cli.setDireccion(getDireccion());
+        cli.setZona(getZona());
+        cli.addTelefono(getTelf1());
+        cli.addTelefono(getTelf2());
+        cli.addTelefono(getTelf3());
+        cli.addTelefono(getTelf4());
+        cli.addTelefono(getTelf5());
+        return cli;
     }
 
-   
+    
+    private String getNombre(){
+        return formCliente.txtNombre.getText();
+    }
+    
+    private String getApellido(){
+        return formCliente.txtNombre.getText();
+    }
+    
+    private String getDireccion(){
+        return formCliente.txtDireccion.getText();
+    }
+    
+    private Zona getZona(){
+        Zona zona = new Zona();
+        zona.setId(formCliente.comZona.getSelectedIndex());
+        zona.setNombre(formCliente.comZona.getSelectedItem());
+        return zona;
+    }
+    
+    private Telefono getTelf1(){
+        return nuevoTelf(formCliente.txtTelefono);
+    }
+    
+    private Telefono getTelf2(){
+        return nuevoTelf(formCliente.txtTelefono1);
+    }
+    private Telefono getTelf3(){
+        return nuevoTelf(formCliente.txtTelefono2);
+    }
+    private Telefono getTelf4(){
+        return nuevoTelf(formCliente.txtTelefono3);
+    }
+    private Telefono getTelf5(){
+        return nuevoTelf(formCliente.txtTelefono4);
+    }
+    
+    private Telefono nuevoTelf(JTextField telef){
+        String aux = telef.getText();
+        int telf = 0;
+        if(!aux.equals("")){
+            telf = Integer.parseInt(aux);
+        }   
+        Telefono t = new Telefono();
+        t.setTelefono(telf);
+        return t;
+    }
 }
