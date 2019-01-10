@@ -36,7 +36,7 @@ public class ListaZonas extends javax.swing.JPanel {
         txtNombre = new javax.swing.JTextField();
         jsClientes = new javax.swing.JScrollPane();
         jtZonas = new rojerusan.RSTableMetro();
-        btnCliente = new javax.swing.JButton();
+        btnZona = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -82,24 +82,24 @@ public class ListaZonas extends javax.swing.JPanel {
 
         add(jsClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 210, 1280, 740));
 
-        btnCliente.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Address_50px.png"))); // NOI18N
-        btnCliente.setText("Nuevo Zona");
-        btnCliente.setBorder(null);
-        btnCliente.setBorderPainted(false);
-        btnCliente.setContentAreaFilled(false);
-        btnCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCliente.setFocusPainted(false);
-        btnCliente.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        btnCliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnCliente.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Address_50px_1.png"))); // NOI18N
-        btnCliente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        add(btnCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1380, 130, -1, -1));
+        btnZona.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnZona.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Address_50px.png"))); // NOI18N
+        btnZona.setText("Nueva Zona");
+        btnZona.setBorder(null);
+        btnZona.setBorderPainted(false);
+        btnZona.setContentAreaFilled(false);
+        btnZona.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnZona.setFocusPainted(false);
+        btnZona.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        btnZona.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnZona.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Address_50px_1.png"))); // NOI18N
+        btnZona.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        add(btnZona, new org.netbeans.lib.awtextra.AbsoluteConstraints(1380, 130, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnCliente;
+    public javax.swing.JButton btnZona;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jsClientes;
