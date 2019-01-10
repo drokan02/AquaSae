@@ -12,7 +12,13 @@ package Modelo;
 public class Zona {
     private int id;
     private String nombre;
-
+    
+    public Zona(){
+    }
+    public Zona(int id, String name){
+        this.id = id;
+        this.nombre = name;
+    }
     public int getId() {
         return id;
     }

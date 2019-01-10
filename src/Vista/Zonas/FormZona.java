@@ -37,7 +37,7 @@ public class FormZona extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
-        txtApellido = new javax.swing.JTextField();
+        txtCodigo = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setFocusTraversalPolicyProvider(true);
@@ -76,8 +76,8 @@ public class FormZona extends javax.swing.JPanel {
         btnRegistrar.setFocusPainted(false);
         add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 390, 640, 30));
 
-        txtApellido.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 640, -1));
+        txtCodigo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 640, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -86,7 +86,7 @@ public class FormZona extends javax.swing.JPanel {
     public javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
-    public javax.swing.JTextField txtApellido;
+    public javax.swing.JTextField txtCodigo;
     public javax.swing.JTextField txtNombre;
     public javax.swing.JLabel txtTitulo;
     // End of variables declaration//GEN-END:variables
