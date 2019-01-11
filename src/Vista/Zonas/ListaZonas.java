@@ -33,7 +33,7 @@ public class ListaZonas extends javax.swing.JPanel {
 
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        txtBuscar = new javax.swing.JTextField();
         jsClientes = new javax.swing.JScrollPane();
         jtZonas = new rojerusan.RSTableMetro();
         btnZona = new javax.swing.JButton();
@@ -51,8 +51,8 @@ public class ListaZonas extends javax.swing.JPanel {
         jLabel1.setText("Buscar:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, -1, -1));
 
-        txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 410, -1));
+        txtBuscar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 410, -1));
 
         jsClientes.setBorder(null);
 
@@ -104,6 +104,6 @@ public class ListaZonas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jsClientes;
     public rojerusan.RSTableMetro jtZonas;
-    public javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }
