@@ -54,18 +54,17 @@ public class ZonaController implements KeyListener,ActionListener,MouseListener{
         }
         
         if(e.getSource()== formZona.btnRegistrar){
-            System.out.println(formZona.btnRegistrar.getText());
-            System.out.println("Actualizar");
-            if(formZona.btnRegistrar.getText().equals("Registrar") == false){
+            if(formZona.btnRegistrar.getText().equals("Actualizar")){
+                MenuController.cambiarPanel(listZona);
                 actualizarZona(actualRow);
                 llenarTabla();
+            }if(formZona.btnRegistrar.getText().equals("Registrar")){
                 MenuController.cambiarPanel(listZona);
-            }else{
-//            System.out.println("yutiytut" + formZona.btnRegistrar.getText().equals("Actualizar") + "----*******-----");
-            registrarZona();
-            llenarTabla();
-            MenuController.cambiarPanel(listZona);
+                registrarZona();
+                llenarTabla();
             }
+            System.out.println("HERE PLEASE");
+            
         }
         
         if(e.getSource() == formZona.btnCancelar){
@@ -84,6 +83,11 @@ public class ZonaController implements KeyListener,ActionListener,MouseListener{
         
         if(ke.getSource() == formZona.txtCodigo){
             Validador.validarLetrasMasEspacio(ke);
+        }
+        
+        if(ke.getSource() == listZona.txtBuscar){
+//            vaciarTabla();
+            llenarTabla();
         }
         
     }
@@ -115,9 +119,7 @@ public class ZonaController implements KeyListener,ActionListener,MouseListener{
                                                     JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
             if( resp == 0){
                 // In variable 'eliminar' I just storage the value 'id'(codigo) from the row selected.
-                
                 actualRow = Integer.parseInt(zonaSeleccionada);
-                
                 eliminarZona(actualRow);
             }            
         }else if(columna == 2){
@@ -151,13 +153,11 @@ public class ZonaController implements KeyListener,ActionListener,MouseListener{
     public void mouseExited(MouseEvent me) {
 
     }
-    
-    
-    
-    //TODO change vista's components names.
-     private void agregarEventos(){
+
+    private void agregarEventos(){
         formZona.txtNombre.addKeyListener(this);
         formZona.txtCodigo.addKeyListener(this);
+        listZona.txtBuscar.addKeyListener(this);
         formZona.btnCancelar.addActionListener(this);
         formZona.btnRegistrar.addActionListener(this);
         listZona.btnZona.addActionListener(this);
@@ -181,26 +181,25 @@ public class ZonaController implements KeyListener,ActionListener,MouseListener{
         modelo.addColumn(" ");
         modelo.addColumn(" ");
         ZonaDao z = new ZonaDao();
-        ArrayList <Zona> zonas = z.list("a");
-        for(int i = 0; i<=zonas.size(); i++){
+        String descripcion = listZona.txtBuscar.getText();
+        ArrayList <Zona> zonas = z.list(descripcion);
+        for (Zona zona : zonas){
             //Fill the table with Zona Objects from Data Base
-            modelo.insertRow(i, new Object[] { zonas.get(i).getId(), zonas.get(i).getNombre(),
-                Principal.btEditar, Principal.btEliminar});
+            Object [] fila = new Object[4];
+            fila[0] = zona.getId();
+            fila[1] = zona.getNombre();
+            fila[2] = Principal.btEditar;
+            fila[3] = Principal.btEliminar;
+            modelo.addRow(fila);
         }
-        //llena las filas con datos de la base de datos
-        
         setTamanioCol(listZona.jtZonas.getColumnModel());
     }
     
     private void setTamanioCol(TableColumnModel col){
-       col.getColumn(0).setPreferredWidth(5);
+       col.getColumn(0).setPreferredWidth(1);
        col.getColumn(1).setPreferredWidth(300);
-       col.getColumn(2).setPreferredWidth(300);
-       col.getColumn(3).setPreferredWidth(130);
-       col.getColumn(4).setPreferredWidth(100);
-       col.getColumn(5).setPreferredWidth(5);
-       col.getColumn(6).setPreferredWidth(5);
-       col.getColumn(7).setPreferredWidth(5);
+       col.getColumn(2).setPreferredWidth(1);
+       col.getColumn(3).setPreferredWidth(1);
     }
     
     private void registrarZona(){
@@ -213,7 +212,7 @@ public class ZonaController implements KeyListener,ActionListener,MouseListener{
       //Review this because the code's zona is not generating automatically.
       
       z.insert(newZone);
-      
+      vaciarFormulario();
     }
 
 
@@ -228,13 +227,28 @@ public class ZonaController implements KeyListener,ActionListener,MouseListener{
     private void actualizarZona(int row) {
       ZonaDao z = new ZonaDao();
       Zona zonaEditar = new Zona();
-      //int codReg = Integer.parseInt(formZona.txtCodigo.getText());
       String nombreEdit = formZona.txtNombre.getText();
       zonaEditar.setId(row);
       zonaEditar.setNombre(nombreEdit);
       z.edit(zonaEditar);
-      System.out.println("Data" + zonaEditar.getNombre()+ ", " + zonaEditar.getId());
+      vaciarFormulario();
+    }
+    
+    private void vaciarFormulario() {
+        formZona.txtCodigo.setText("");
+        formZona.txtNombre.setText("");
     }
 
+    private void vaciarTabla() {
+        DefaultTableModel modelo = (DefaultTableModel) listZona.jtZonas.getModel();
+        int filasTotales = modelo.getRowCount();
+        
+        
+        for(int i = 0; i<filasTotales ; i++){
+            modelo.removeRow(i);
+            i-=1;
+        }
+        
+    }
    
 }
