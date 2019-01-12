@@ -37,10 +37,12 @@ public class NewMain {
 //         cli.setDireccion("calle isidro");
 //         cli.setZona(zona);
 //         
-//         ClienteDao dao = new ClienteDao();
+//        ClienteDao dao = new ClienteDao();
 //         String res = dao.insert(cli);
 //         System.out.println(res);
-
+//            Connector con = new Connector();
+//            con.conectar();
+//        System.out.println(dao.list("").size());
     }
     
 }

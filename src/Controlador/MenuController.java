@@ -53,10 +53,11 @@ public class MenuController implements ActionListener,WindowListener{
         }
         
         if(e.getSource() == principal.btZonas){
+            seleccionarBoton(principal.btZonas);
             ListaZonas listZona = new ListaZonas();
             cambiarPanel(listZona);
-            //ZonaController zonCont = new ZonaController(listZona);
-            seleccionarBoton(principal.btZonas);  
+            ZonaController zonCont = new ZonaController(listZona);
+              
         }
         
         if(e.getSource() == principal.btClientes){

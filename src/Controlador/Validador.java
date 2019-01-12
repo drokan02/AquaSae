@@ -43,6 +43,13 @@ public class Validador {
         }
     }
     
+    public static void validarLetrasMasEspacioMasNumero(KeyEvent e){
+        char car = e.getKeyChar();
+        if(!Character.isLetter(car) && car != KeyEvent.VK_SPACE && !Character.isDigit(car)){
+            e.consume();
+        }
+    }
+    
     public static void validarMonto(KeyEvent e){
         
     }
