@@ -91,8 +91,6 @@ public class ClienteController implements KeyListener,ActionListener,MouseListen
         
         if(ke.getSource() == listCliente.txtBuscar){
             //Validador.validarLetrasMasEspacioMasNumero(ke);
-            System.out.println(getBuscador());
-
             buscarClientes();
         }
         
@@ -108,8 +106,6 @@ public class ClienteController implements KeyListener,ActionListener,MouseListen
     public void keyReleased(KeyEvent ke) {
         if(ke.getSource() == listCliente.txtBuscar){
             //Validador.validarLetrasMasEspacioMasNumero(ke);
-            System.out.println(getBuscador());
-
             buscarClientes();
         }
     }
