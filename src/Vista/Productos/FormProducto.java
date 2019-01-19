@@ -31,16 +31,17 @@ public class FormProducto extends javax.swing.JPanel {
     private void initComponents() {
 
         txtTitulo = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtDireccion = new javax.swing.JTextField();
-        txtTelefono = new javax.swing.JTextField();
+        txtStock = new javax.swing.JTextField();
+        txtPrecio = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
-        txtApellido = new javax.swing.JTextField();
+        txtDescripcion = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setFocusTraversalPolicyProvider(true);
@@ -52,26 +53,30 @@ public class FormProducto extends javax.swing.JPanel {
         txtTitulo.setText("REGISTRAR PRODUCTO");
         add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 77));
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel6.setText("Bs/Unidad");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 420, -1, -1));
+
         txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 640, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel2.setText("Costo:");
+        jLabel2.setText("Tipo:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel3.setText("Existencia:");
+        jLabel3.setText("Stock:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel5.setText("Tipo:");
+        jLabel5.setText("Precio:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, -1, -1));
 
-        txtDireccion.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 640, -1));
+        txtStock.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 640, -1));
 
-        txtTelefono.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 640, -1));
+        txtPrecio.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 550, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel8.setText("Nombre:");
@@ -93,8 +98,8 @@ public class FormProducto extends javax.swing.JPanel {
         btnRegistrar.setFocusPainted(false);
         add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 640, 30));
 
-        txtApellido.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 640, -1));
+        txtDescripcion.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 640, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -104,11 +109,12 @@ public class FormProducto extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
-    public javax.swing.JTextField txtApellido;
-    public javax.swing.JTextField txtDireccion;
+    public javax.swing.JTextField txtDescripcion;
     public javax.swing.JTextField txtNombre;
-    public javax.swing.JTextField txtTelefono;
+    public javax.swing.JTextField txtPrecio;
+    public javax.swing.JTextField txtStock;
     public javax.swing.JLabel txtTitulo;
     // End of variables declaration//GEN-END:variables
 }
