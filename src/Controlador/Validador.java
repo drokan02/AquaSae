@@ -50,10 +50,62 @@ public class Validador {
         }
     }
     
-    public static void validarMonto(KeyEvent e){
-        
+    public static void validarMoneda(KeyEvent e,String monto){
+        char car = e.getKeyChar();
+        if( car != '.' && !Character.isDigit(car)){
+            e.consume();
+        }else{
+            if(car == '.'){
+                boolean existPunto = buscarPunto(monto);
+                if(existPunto){
+                   e.consume();
+                }
+            }else{
+                boolean existPunto = buscarPunto(monto);
+                if(existPunto){
+                   if(decimalValido(monto)){
+                       e.consume();
+                   }
+                }
+            }
+        }
     }
     
+    private static boolean buscarPunto(String monto){
+        boolean res = false;
+        int i = 0;
+        if(monto.length() == 0){
+            res = true;
+        }
+        while(i < monto.length()){
+            if(monto.charAt(i) == '.'){
+                res = true;
+                i = monto.length();
+            }else{
+                i++;
+            }
+        }
+        return res;
+    }
+    
+    private static boolean decimalValido(String monto){
+        boolean res = false;
+        int i = 0;
+        int nroD= -1;
+        while(i < monto.length()){
+            if(nroD > -1){
+                nroD += 1;
+                if(nroD == 2){
+                    res = true;
+                    i = monto.length();
+                }
+            }else if(monto.charAt(i) == '.'){
+                nroD = 0;
+            }
+            i++;
+        }
+        return res;
+    }
     public static void validarFecha(){
         
     }
