@@ -55,14 +55,6 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
     
     @Override
     public void keyTyped(KeyEvent ke) {
-//        if(ke.getSource() == formPedido.txtNombre){
-
-//        }
-        
-        if(ke.getSource() == listPedido.txtBuscar){
-//            vaciarTabla();
-            llenarTabla();
-        }
     }
 
     @Override
@@ -73,22 +65,16 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
     @Override
     public void keyReleased(KeyEvent e) {
             if(e.getSource() == formPedido.txtCantidad){
-            String cantidadCadena = formPedido.txtCantidad.getText();
-            String precioCadena = formPedido.txtPrecio.getText();
-            int cantidad = 0;
-            Double precio = 0.0;
-            Double total = 0.0;
-//            if(!(cantidadCadena != null && !cantidadCadena.trim().isEmpty()) || (precioCadena != null && !precioCadena.trim().isEmpty())){
-            if(!((cantidadCadena.isEmpty()) && (precioCadena.isEmpty()))){
-                System.out.println(Integer.parseInt(formPedido.txtCantidad.getText()));
-                cantidad = Integer.parseInt(formPedido.txtCantidad.getText());
-                precio = Double.parseDouble(formPedido.txtPrecio.getText());
-                total = precio*cantidad;
-                formPedido.txtTotal.setText(total.toString());
+                calcularTotal();
             }
-            
-
+             if(e.getSource() == listPedido.txtBuscar){
+             Validador.validarLetrasMasEspacioMasNumero(e);
+             llenarTabla();
+            }
+             if(e.getSource() == formPedido.txtCantidad){
+             Validador.validarNumero(e);
         }
+            
     }
 
     @Override
@@ -246,7 +232,7 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
             fila[3] = pedido.getFecha_pedido();
             fila[4] = pedido.getCantidad();
             fila[5] = pedido.getTotal();
-            fila[6] = pedido.getEntregado();
+            fila[6] = ceroFalse(pedido.getEntregado());
             fila[7] = Principal.btEditar;
             fila[8] = Principal.btEliminar;
             modelo.addRow(fila);
@@ -356,6 +342,7 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
                         }
                     }
                 }
+                calcularTotal();
             }
         });
     }
@@ -373,6 +360,29 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
         formPedido.txtCantidad.setText(String.valueOf(pedidoEditar.getCantidad()));
         formPedido.txtPrecio.setText(String.valueOf(pedidoEditar.getProducto().getPrecio()));
         formPedido.txtTotal.setText(String.valueOf(pedidoEditar.getTotal()));
+    }
+    
+    private void calcularTotal(){
+        String cantidadCadena = formPedido.txtCantidad.getText();
+        String precioCadena = formPedido.txtPrecio.getText();
+        int cantidad = 0;
+        Double precio = 0.0;
+        Double total = 0.0;
+    //  if(!(cantidadCadena != null && !cantidadCadena.trim().isEmpty()) || (precioCadena != null && !precioCadena.trim().isEmpty())){
+        if(!((cantidadCadena.isEmpty()) && (precioCadena.isEmpty()))){
+            System.out.println(Integer.parseInt(formPedido.txtCantidad.getText()));
+            cantidad = Integer.parseInt(formPedido.txtCantidad.getText());
+            precio = Double.parseDouble(formPedido.txtPrecio.getText());
+            total = precio*cantidad;
+            formPedido.txtTotal.setText(total.toString());
+        }
+    }
+//  Method to become '0' into NO, and '1' into SI  
+    private String ceroFalse(int estado){
+        String res= "NO";
+        if(estado==1) res = "SI" ;
+        if(estado==0) res = "NO" ;
+        return res;
     }
     
 }

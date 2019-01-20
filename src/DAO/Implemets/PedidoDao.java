@@ -130,11 +130,11 @@ public class PedidoDao implements Dao<Pedido>{
         String list = "SELECT client_prod.id id_pedido, client_prod.id_client, "
                 + "client_prod.id_prod, client_prod.fecha_pedido, client_prod.quantity cantidad,"
                 + "client_prod.total, client_prod.delivered"
-                + " FROM client_prod, product GROUP BY client_prod.id";
-//                + "WHERE concat(client.name,' ',client.surname) like '%"
-//                + description + "%' OR"
-//                + "product.name like '%"
-//                + description + "%'";
+                + " FROM client_prod INNER JOIN client ON client_prod.id_client=client.id "
+                + "INNER JOIN product ON product.id=client_prod.id_prod "
+                + "WHERE concat(client.name,' ',client.surname,' ',product.name,' ',product.desc,' ',product.stock,"
+                + "' ',client_prod.fecha_pedido,' ',client_prod.quantity) like '%"
+                + description + "%' GROUP BY client_prod.id";
     try {
       st = con.createStatement();
       
@@ -196,8 +196,6 @@ public class PedidoDao implements Dao<Pedido>{
         
         cliente = c.searchById(cliente);
         producto = p.search(producto);
-        System.out.println("------------------->"+cliente.getNombre()+" "+cliente.getApellidos());
-        System.out.println("------------------->"+producto.getNombre());
         a = new Pedido(rt.getInt(1), cliente,
                             producto, rt.getDate(4),
                             rt.getInt(5), rt.getDouble(6),
@@ -209,8 +207,6 @@ public class PedidoDao implements Dao<Pedido>{
       JOptionPane.showMessageDialog(null,
               Errors.errorMessage(ex.getErrorCode(), ex.getMessage()));
     }
-    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>><"+a.getCliente().getApellidos());
-    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>><"+a.getProducto().getNombre());
     return a;  
     }
     
