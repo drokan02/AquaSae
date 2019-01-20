@@ -37,7 +37,7 @@ public class ListaCliente extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jsClientes = new javax.swing.JScrollPane();
         jtClientes = new rojerusan.RSTableMetro();
-        txtNombre = new javax.swing.JTextField();
+        txtBuscar = new javax.swing.JTextField();
         btnCliente = new javax.swing.JButton();
 
         btEditar.setBackground(new java.awt.Color(255, 51, 0));
@@ -102,8 +102,8 @@ public class ListaCliente extends javax.swing.JPanel {
 
         add(jsClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 210, 1280, 740));
 
-        txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 410, -1));
+        txtBuscar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 410, -1));
 
         btnCliente.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Add_User_Male_50px.png"))); // NOI18N
@@ -130,6 +130,6 @@ public class ListaCliente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jsClientes;
     public rojerusan.RSTableMetro jtClientes;
-    public javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }
