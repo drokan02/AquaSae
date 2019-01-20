@@ -39,6 +39,7 @@ public class ZonaController implements KeyListener,ActionListener,MouseListener{
         actualRow = -1;
         agregarEventos();
         llenarTabla();
+        formZona.txtCodigo.setEditable(false);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -81,12 +82,8 @@ public class ZonaController implements KeyListener,ActionListener,MouseListener{
            Validador.validarLetrasMasEspacio(ke);
         }
         
-        if(ke.getSource() == formZona.txtCodigo){
-            Validador.validarLetrasMasEspacio(ke);
-        }
-        
         if(ke.getSource() == listZona.txtBuscar){
-//            vaciarTabla();
+            Validador.validarLetrasMasEspacioMasNumero(ke);
             llenarTabla();
         }
         
