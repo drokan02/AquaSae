@@ -19,6 +19,15 @@ public class Producto {
     private double precio;
     private int stock;
     private Date fecha;
+    private double total;
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
 
     public int getId() {
         return id;
@@ -48,6 +57,10 @@ public class Producto {
         return fecha;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

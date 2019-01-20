@@ -30,37 +30,37 @@ public class ListaPedido extends javax.swing.JPanel {
     private void initComponents() {
 
         jstab = new rojerusan.RSTableMetroBeanInfo();
-        jLabel7 = new javax.swing.JLabel();
+        txtTitulo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        txtBuscar = new javax.swing.JTextField();
         jsClientes = new javax.swing.JScrollPane();
-        jtClientes = new rojerusan.RSTableMetro();
-        btnCliente = new javax.swing.JButton();
+        jtPedidos = new rojerusan.RSTableMetro();
+        btnPedido = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(128, 128, 131));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("PEDIDOS");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1630, 77));
+        txtTitulo.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
+        txtTitulo.setForeground(new java.awt.Color(128, 128, 131));
+        txtTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtTitulo.setText("PEDIDOS");
+        add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1630, 77));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Buscar:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, -1, -1));
 
-        txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 410, -1));
+        txtBuscar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 410, -1));
 
         jsClientes.setBorder(null);
 
-        jtClientes = new rojerusan.RSTableMetro(){
+        jtPedidos = new rojerusan.RSTableMetro(){
             public boolean isCellEditable(int row, int column){
                 return false;
             }
         };
-        jtClientes.setModel(new javax.swing.table.DefaultTableModel(
+        jtPedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -71,39 +71,39 @@ public class ListaPedido extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jtClientes.setFuenteFilas(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jtClientes.setGridColor(new java.awt.Color(102, 102, 102));
-        jtClientes.setGrosorBordeFilas(0);
-        jtClientes.setGrosorBordeHead(0);
-        jtClientes.setRowHeight(30);
-        jtClientes.getTableHeader().setReorderingAllowed(false);
-        jsClientes.setViewportView(jtClientes);
+        jtPedidos.setFuenteFilas(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jtPedidos.setGridColor(new java.awt.Color(102, 102, 102));
+        jtPedidos.setGrosorBordeFilas(0);
+        jtPedidos.setGrosorBordeHead(0);
+        jtPedidos.setRowHeight(30);
+        jtPedidos.getTableHeader().setReorderingAllowed(false);
+        jsClientes.setViewportView(jtPedidos);
 
         add(jsClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 210, 1280, 740));
 
-        btnCliente.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Missed_Call_50px_2.png"))); // NOI18N
-        btnCliente.setText("Nuevo Pedido");
-        btnCliente.setBorder(null);
-        btnCliente.setBorderPainted(false);
-        btnCliente.setContentAreaFilled(false);
-        btnCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCliente.setFocusPainted(false);
-        btnCliente.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        btnCliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnCliente.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Missed_Call_50px_1.png"))); // NOI18N
-        btnCliente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        add(btnCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1380, 130, -1, -1));
+        btnPedido.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Missed_Call_50px_2.png"))); // NOI18N
+        btnPedido.setText("Nuevo Pedido");
+        btnPedido.setBorder(null);
+        btnPedido.setBorderPainted(false);
+        btnPedido.setContentAreaFilled(false);
+        btnPedido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPedido.setFocusPainted(false);
+        btnPedido.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        btnPedido.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPedido.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Missed_Call_50px_1.png"))); // NOI18N
+        btnPedido.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        add(btnPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(1380, 130, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnCliente;
+    public javax.swing.JButton btnPedido;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jsClientes;
     public rojerusan.RSTableMetroBeanInfo jstab;
-    public rojerusan.RSTableMetro jtClientes;
-    public javax.swing.JTextField txtNombre;
+    public rojerusan.RSTableMetro jtPedidos;
+    public javax.swing.JTextField txtBuscar;
+    private javax.swing.JLabel txtTitulo;
     // End of variables declaration//GEN-END:variables
 }
