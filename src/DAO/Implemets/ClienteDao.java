@@ -287,16 +287,24 @@ public class ClienteDao implements Dao<Cliente>{
         conn = new Connector();
         conn.conectar();
         con = conn.getConexion();
-        String search =  "SELECT * FROM client "
-                        + "WHERE client.id = '"+a.getId()+"' OR concat_ws(' ',client.name, client.surname) = '"+a.getNombre()+"'";
+        String search =  "SELECT client.id id_client, client.name nombre, client.surname apellido, "
+                        + "client.dir direccion, zone.id id_zona, zone.name zona FROM client "
+                        + "INNER JOIN client_zone ON client.id=client_zone.id_client "
+                        + "INNER JOIN zone ON client_zone.id_zone=zone.id "
+                        + "WHERE client.id = '"+a.getId()+"' ";
         try {
           st = con.createStatement();
           rt = st.executeQuery(search);
           if (rt.next()) {
-              a.setId(rt.getInt(1));
-              a.setNombre(rt.getString(2));
-              a.setApellidos(rt.getString(3));
-              a.setDireccion(rt.getString(4));
+              Zona zona = new Zona();
+              ArrayList<Telefono> telefonos = buscarTelefonos(rt.getInt(1));
+              zona.setId(rt.getInt("id_zona"));
+              zona.setNombre(rt.getString("zona"));
+              a.setId(rt.getInt("id_client"));
+              a.setNombre(rt.getString("nombre"));
+              a.setApellidos(rt.getString("apellido"));
+              a.setZona(zona);
+              a.setTelefonos(telefonos);
           }
           conn.desconectar();
         } catch (SQLException ex) {
