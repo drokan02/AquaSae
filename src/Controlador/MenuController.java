@@ -53,10 +53,11 @@ public class MenuController implements ActionListener,WindowListener{
         }
         
         if(e.getSource() == principal.btZonas){
+            seleccionarBoton(principal.btZonas);
             ListaZonas listZona = new ListaZonas();
             cambiarPanel(listZona);
             ZonaController zonCont = new ZonaController(listZona);
-            seleccionarBoton(principal.btZonas);  
+              
         }
         
         if(e.getSource() == principal.btClientes){
@@ -70,6 +71,7 @@ public class MenuController implements ActionListener,WindowListener{
         if(e.getSource() == principal.btProductos){
             ListaProductos listProd = new ListaProductos();
             cambiarPanel(listProd);
+            ProductoController ProdCont = new ProductoController(listProd);
             seleccionarBoton(principal.btProductos);
         }
         
@@ -116,7 +118,6 @@ public class MenuController implements ActionListener,WindowListener{
     @Override
     public void windowDeiconified(WindowEvent we) {
         principal.setExtendedState(MAXIMIZED_BOTH);
-        System.out.print("DASDASDASDas");
     }
 
     @Override

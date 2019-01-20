@@ -32,10 +32,10 @@ public class ListaProductos extends javax.swing.JPanel {
 
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        txtBuscar = new javax.swing.JTextField();
         jsClientes = new javax.swing.JScrollPane();
         jtProductos = new rojerusan.RSTableMetro();
-        btnCliente = new javax.swing.JButton();
+        btnProducto = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -50,8 +50,8 @@ public class ListaProductos extends javax.swing.JPanel {
         jLabel1.setText("Buscar:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, -1, -1));
 
-        txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 410, -1));
+        txtBuscar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 410, -1));
 
         jsClientes.setBorder(null);
 
@@ -81,28 +81,28 @@ public class ListaProductos extends javax.swing.JPanel {
 
         add(jsClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 210, 1280, 740));
 
-        btnCliente.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_New_Product_50px.png"))); // NOI18N
-        btnCliente.setText("Nuevo Producto");
-        btnCliente.setBorder(null);
-        btnCliente.setBorderPainted(false);
-        btnCliente.setContentAreaFilled(false);
-        btnCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCliente.setFocusPainted(false);
-        btnCliente.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        btnCliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnCliente.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_New_Product_50px_1.png"))); // NOI18N
-        btnCliente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        add(btnCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 130, -1, -1));
+        btnProducto.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_New_Product_50px.png"))); // NOI18N
+        btnProducto.setText("Nuevo Producto");
+        btnProducto.setBorder(null);
+        btnProducto.setBorderPainted(false);
+        btnProducto.setContentAreaFilled(false);
+        btnProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProducto.setFocusPainted(false);
+        btnProducto.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        btnProducto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnProducto.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_New_Product_50px_1.png"))); // NOI18N
+        btnProducto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        add(btnProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 130, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnCliente;
+    public javax.swing.JButton btnProducto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jsClientes;
     public rojerusan.RSTableMetro jtProductos;
-    public javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }
