@@ -227,6 +227,7 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
         for (Pedido pedido : pedidos){
             Object [] fila = new Object[9];
             fila[0] = pedido.getId();
+            System.out.println("------->"+pedido.getCliente().getZona().getNombre()+"<------------");
             fila[1] = pedido.getCliente().getNombre()+ " " +pedido.getCliente().getApellidos();
             fila[2] = pedido.getProducto().getNombre();
             fila[3] = pedido.getFecha_pedido();
@@ -306,7 +307,7 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
 
     private void llenarCombos() {
         ClienteDao c = new ClienteDao();
-        clientes = c.listClient("");
+        clientes = c.list("");
         ProductoDao p = new ProductoDao();
         productos = p.list("");
         
@@ -327,6 +328,7 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
                         String fullName = cliente.getNombre()+" "+cliente.getApellidos();
                         if(formPedido.comCliente.getSelectedItem().equals(fullName)){
                             formPedido.txtDireccion.setText(cliente.getDireccion());
+                            System.out.println("----------------------------------------->"+cliente.getZona().getNombre());
                             formPedido.txtZona.setText(cliente.getZona().getNombre());
                         }
                     }
