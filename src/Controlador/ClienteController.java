@@ -167,6 +167,7 @@ public class ClienteController implements KeyListener,ActionListener,MouseListen
         listCliente.btnCliente.addActionListener(this);
         listCliente.jtClientes.addMouseListener(this);
         listCliente.txtBuscar.addKeyListener(this);
+        
         formCliente.setFocusTraversalPolicy(new FocusTraversalOnArray(
                 new Component[]{formCliente.txtNombre, formCliente.txtApellido,
                     formCliente.txtDireccion,formCliente.comZona,formCliente.txtTelefono,
