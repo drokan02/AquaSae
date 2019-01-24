@@ -35,17 +35,17 @@ public class FormPedido extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        txtApellido = new javax.swing.JTextField();
+        txtTitulo = new javax.swing.JLabel();
+        txtDireccion = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtDireccion = new javax.swing.JTextField();
+        txtZona = new javax.swing.JTextField();
         txtPrecio = new javax.swing.JTextField();
-        comZona = new java.awt.Choice();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        comProducto = new java.awt.Choice();
+        btnCancelar = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -71,17 +71,17 @@ public class FormPedido extends javax.swing.JPanel {
         jLabel6.setText("Cantidad:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 520, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(128, 128, 131));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("NUEVO PEDIDO");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1630, 77));
+        txtTitulo.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
+        txtTitulo.setForeground(new java.awt.Color(128, 128, 131));
+        txtTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtTitulo.setText("NUEVO PEDIDO");
+        add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1630, 77));
 
-        txtApellido.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 640, -1));
+        txtDireccion.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 640, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel2.setText("Direccion:");
+        jLabel2.setText("Dirección:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -96,50 +96,50 @@ public class FormPedido extends javax.swing.JPanel {
         jLabel5.setText("Precio:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, -1, -1));
 
-        txtDireccion.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 370, 640, -1));
+        txtZona.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        add(txtZona, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 370, 640, -1));
 
         txtPrecio.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, 640, -1));
 
-        comZona.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(comZona, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, 640, -1));
+        comProducto.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        add(comProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, 640, -1));
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Cancelar");
-        jButton1.setBorder(new javax.swing.border.MatteBorder(null));
-        jButton1.setFocusPainted(false);
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 670, 640, 30));
+        btnCancelar.setBackground(new java.awt.Color(102, 102, 102));
+        btnCancelar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(new javax.swing.border.MatteBorder(null));
+        btnCancelar.setFocusPainted(false);
+        add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 670, 640, 30));
 
-        jButton2.setBackground(new java.awt.Color(51, 51, 255));
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Registrar");
-        jButton2.setBorder(new javax.swing.border.MatteBorder(null));
-        jButton2.setFocusPainted(false);
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 620, 640, 30));
+        btnRegistrar.setBackground(new java.awt.Color(51, 51, 255));
+        btnRegistrar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrar.setText("Registrar");
+        btnRegistrar.setBorder(new javax.swing.border.MatteBorder(null));
+        btnRegistrar.setFocusPainted(false);
+        add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 620, 640, 30));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnCancelar;
+    public javax.swing.JButton btnRegistrar;
     public java.awt.Choice comCliente;
-    public java.awt.Choice comZona;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public java.awt.Choice comProducto;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    public javax.swing.JTextField txtApellido;
     public javax.swing.JTextField txtCantidad;
     public javax.swing.JTextField txtDireccion;
     public javax.swing.JTextField txtPrecio;
+    public javax.swing.JLabel txtTitulo;
     public javax.swing.JTextField txtTotal;
+    public javax.swing.JTextField txtZona;
     // End of variables declaration//GEN-END:variables
 }

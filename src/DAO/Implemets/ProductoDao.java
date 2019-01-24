@@ -99,7 +99,7 @@ public class ProductoDao implements Dao<Producto>{
         conn = new Connector();
         conn.conectar();
         con = conn.getConexion();
-        String list = "SELECT id,name,product.desc,price,stock "
+        String list = "SELECT * "
                     + "FROM product "
                     + "WHERE concat(name,' ',product.desc,' ',stock) "
                     + "like '%"+ description + "%'";
@@ -131,8 +131,8 @@ public class ProductoDao implements Dao<Producto>{
         conn = new Connector();
         conn.conectar();
         con = conn.getConexion();
-        String list = "SELECT id,name,desc,price,stock "
-                    + "FROM product"
+        String list = "SELECT * "
+                    + "FROM product "
                     + "WHERE id = "+a.getId()+"";
 
         try {

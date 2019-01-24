@@ -250,6 +250,73 @@ public class ClienteDao implements Dao<Cliente>{
         return a; 
     }
    
+//    Result is an Array of only Clients by client table
+      public ArrayList<Cliente> listClient(String description) {
+        ArrayList<Cliente> res = new ArrayList<>();
+        conn = new Connector();
+        conn.conectar();
+        con = conn.getConexion();
+        String list = "SELECT * FROM client "
+                    + "WHERE concat(client.name,' ',client.surname,' ',client.dir) "
+                    + "like '%"+ description + "%' ORDER BY client.surname";
+
+        try {
+          st = con.createStatement();
+
+          rt = st.executeQuery(list);
+          //mientras rt tenga datos se iterara
+          while (rt.next()) {
+            Cliente cliente = new Cliente();
+            cliente.setId(rt.getInt(1));
+            cliente.setNombre(rt.getString(2));
+            cliente.setApellidos(rt.getString(3));
+            cliente.setDireccion(rt.getString(4));
+            res.add(cliente);
+          }
+          conn.desconectar();
+        } catch (SQLException ex) {
+          JOptionPane.showMessageDialog(null, ex);
+        }
+        return res;
+    }
+
+    
+    
+//    Another method that only use de id_client to find one.
+    public Cliente searchById(Cliente a) {
+        conn = new Connector();
+        conn.conectar();
+        con = conn.getConexion();
+        String search =  "SELECT client.id id_client, client.name nombre, client.surname apellido, "
+                        + "client.dir direccion, zone.id id_zona, zone.name zona FROM client "
+                        + "INNER JOIN client_zone ON client.id=client_zone.id_client "
+                        + "INNER JOIN zone ON client_zone.id_zone=zone.id "
+                        + "WHERE client.id = '"+a.getId()+"' ";
+        try {
+          st = con.createStatement();
+          rt = st.executeQuery(search);
+          if (rt.next()) {
+              Zona zona = new Zona();
+              ArrayList<Telefono> telefonos = buscarTelefonos(rt.getInt(1));
+              zona.setId(rt.getInt("id_zona"));
+              zona.setNombre(rt.getString("zona"));
+              a.setId(rt.getInt("id_client"));
+              a.setNombre(rt.getString("nombre"));
+              a.setApellidos(rt.getString("apellido"));
+              a.setZona(zona);
+              a.setTelefonos(telefonos);
+          }
+          conn.desconectar();
+        } catch (SQLException ex) {
+          JOptionPane.showMessageDialog(null,
+                  Errors.errorMessage(ex.getErrorCode(), ex.getMessage()));
+        }
+        return a; 
+    }
+    
+    
+    
+    
     public Cliente idCliente(Cliente a){
         Cliente cli = new Cliente();
         conn = new Connector();

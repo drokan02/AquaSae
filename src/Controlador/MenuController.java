@@ -78,6 +78,7 @@ public class MenuController implements ActionListener,WindowListener{
         if(e.getSource() == principal.btPedidos){
             ListaPedido listPed = new ListaPedido();
             cambiarPanel(listPed);
+            PedidoController pedCont = new PedidoController(listPed);
             seleccionarBoton(principal.btPedidos);
         }
         

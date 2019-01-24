@@ -137,9 +137,9 @@ public class ZonaDao implements Dao<Zona>{
     con = conn.getConexion();
     String search = "SELECT id, name "
             + "FROM zone "
-            + "WHERE id = '" + a.getId() + "' "
+            + "WHERE id = '" + a.getId() + "' ";
 //            Trying with logical connector OR, but at the begin was AND
-            + "or   name = '" + a.getNombre() + "'";
+//            + "or   name = '" + a.getNombre() + "'";
 //    String search = "SELECT id, name "
 //            + "FROM zone "
 //            + "WHERE concat(id,' ',name) like '%" + a.getNombre()+ "%' ";
