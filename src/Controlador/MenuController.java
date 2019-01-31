@@ -50,6 +50,7 @@ public class MenuController implements ActionListener,WindowListener{
             VistaInicio inicio = new VistaInicio();
             seleccionarBoton(principal.btInicio);
             cambiarPanel(inicio);
+            InicioController iniCont = new InicioController(inicio);
         }
         
         if(e.getSource() == principal.btZonas){
@@ -98,7 +99,10 @@ public class MenuController implements ActionListener,WindowListener{
 
     @Override
     public void windowOpened(WindowEvent we) {
-
+        VistaInicio inicio = new VistaInicio();
+        seleccionarBoton(principal.btInicio);
+        cambiarPanel(inicio);
+        InicioController iniCont = new InicioController(inicio);
     }
 
     @Override

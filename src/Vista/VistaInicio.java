@@ -32,9 +32,9 @@ public class VistaInicio extends javax.swing.JPanel {
 
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        txtBuscar = new javax.swing.JTextField();
         jsClientes = new javax.swing.JScrollPane();
-        jtClientes = new rojerusan.RSTableMetro();
+        jtPedidos = new rojerusan.RSTableMetro();
         btnCliente = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -50,17 +50,17 @@ public class VistaInicio extends javax.swing.JPanel {
         jLabel1.setText("Buscar:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, -1, -1));
 
-        txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 410, -1));
+        txtBuscar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 410, -1));
 
         jsClientes.setBorder(null);
 
-        jtClientes = new rojerusan.RSTableMetro(){
+        jtPedidos = new rojerusan.RSTableMetro(){
             public boolean isCellEditable(int row, int column){
                 return false;
             }
         };
-        jtClientes.setModel(new javax.swing.table.DefaultTableModel(
+        jtPedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -71,13 +71,13 @@ public class VistaInicio extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jtClientes.setFuenteFilas(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jtClientes.setGridColor(new java.awt.Color(102, 102, 102));
-        jtClientes.setGrosorBordeFilas(0);
-        jtClientes.setGrosorBordeHead(0);
-        jtClientes.setRowHeight(30);
-        jtClientes.getTableHeader().setReorderingAllowed(false);
-        jsClientes.setViewportView(jtClientes);
+        jtPedidos.setFuenteFilas(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jtPedidos.setGridColor(new java.awt.Color(102, 102, 102));
+        jtPedidos.setGrosorBordeFilas(0);
+        jtPedidos.setGrosorBordeHead(0);
+        jtPedidos.setRowHeight(30);
+        jtPedidos.getTableHeader().setReorderingAllowed(false);
+        jsClientes.setViewportView(jtPedidos);
 
         add(jsClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 210, 1280, 740));
 
@@ -98,11 +98,11 @@ public class VistaInicio extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCliente;
+    public javax.swing.JButton btnCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jsClientes;
-    public rojerusan.RSTableMetro jtClientes;
-    public javax.swing.JTextField txtNombre;
+    public rojerusan.RSTableMetro jtPedidos;
+    public javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }
