@@ -120,6 +120,7 @@ public class PedidoDao implements Dao<Pedido>{
 
     }
 
+    //this method return a list of Pedidos with today's date
     @Override
     public ArrayList<Pedido> list(String description) {
         ArrayList<Pedido> res = new ArrayList<>();
@@ -127,14 +128,64 @@ public class PedidoDao implements Dao<Pedido>{
         conn.conectar();
         con = conn.getConexion();
 //        This query is to find description in client or prodict tables.
-        String list = "SELECT client_prod.id id_pedido, client_prod.id_client, "
-                + "client_prod.id_prod, client_prod.fecha_pedido, client_prod.quantity cantidad,"
-                + "client_prod.total, client_prod.delivered"
-                + " FROM client_prod INNER JOIN client ON client_prod.id_client=client.id "
-                + "INNER JOIN product ON product.id=client_prod.id_prod "
-                + "WHERE concat(client.name,' ',client.surname,' ',product.name,' ',product.desc,' ',product.stock,"
+        String list = "SELECT DISTINCT client_prod.id, client_prod.id_client, "
+                + "client_prod.id_prod, DATE_FORMAT(client_prod.fecha_pedido, '%Y-%m-%d') , client_prod.quantity,"
+                + "client_prod.total, client_prod.delivered "
+                + "FROM client_prod INNER JOIN client ON client_prod.id_client=client.id "
+                + "INNER JOIN client_zone ON client_zone.id_client=client.id "
+                + "INNER JOIN zone ON client_zone.id_zone=zone.id "
+                + "WHERE DATE(client_prod.fecha_pedido) = CURDATE() AND concat(client.name,' ',client.surname,' ', zone.name,"
                 + "' ',client_prod.fecha_pedido,' ',client_prod.quantity) like '%"
-                + description + "%' GROUP BY client_prod.id";
+//                + description + "%' GROUP BY client_prod.id ORDER BY zone.name ";
+                + description + "%' ORDER BY zone.name ";
+    try {
+      st = con.createStatement();
+      
+      rt = st.executeQuery(list);
+      //mientras rt tenga datos se iterara
+      while (rt.next()) {
+        //accedes en el orden q especificaste en el select rt.getInt(1) = id_user;
+        Producto producto = new Producto();
+        ProductoDao p= new ProductoDao();
+        Cliente cliente = new Cliente();
+        ClienteDao c = new ClienteDao();
+        cliente.setId(rt.getInt(2));
+        producto.setId(rt.getInt(3));
+//        Añadimos todos los datos del objeto cliente y producto
+        cliente = c.searchById(cliente);
+
+        producto = p.search(producto);
+ 
+        
+        producto.setId(rt.getInt(3));
+        res.add(new Pedido(rt.getInt(1), cliente,
+                            producto, rt.getDate(4),
+                            rt.getInt(5), rt.getDouble(6),
+                            rt.getInt(7)));
+      }
+      conn.desconectar();
+    } catch (SQLException ex) {
+      JOptionPane.showMessageDialog(null, ex);
+    }
+    return res;
+    }
+    
+    public ArrayList<Pedido> listToDeliver(String description) {
+        ArrayList<Pedido> res = new ArrayList<>();
+        conn = new Connector();
+        conn.conectar();
+        con = conn.getConexion();
+//        This query is to find description in client or prodict tables.
+        String list = "SELECT DISTINCT client_prod.id, client_prod.id_client, "
+                + "client_prod.id_prod, DATE_FORMAT(client_prod.fecha_pedido, '%Y-%m-%d') , client_prod.quantity,"
+                + "client_prod.total, client_prod.delivered "
+                + "FROM client_prod INNER JOIN client ON client_prod.id_client=client.id "
+                + "INNER JOIN client_zone ON client_zone.id_client=client.id "
+                + "INNER JOIN zone ON client_zone.id_zone=zone.id "
+                + "WHERE DATE(client_prod.fecha_pedido) = DATE_SUB(CURDATE(),INTERVAL 1 DAY) AND concat(client.name,' ',client.surname,' ', zone.name,"
+                + "' ',client_prod.fecha_pedido,' ',client_prod.quantity) like '%"
+//                + description + "%' GROUP BY client_prod.id ORDER BY zone.name ";
+                + description + "%' ORDER BY zone.name ";
     try {
       st = con.createStatement();
       
