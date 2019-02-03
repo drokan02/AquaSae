@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null"  pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1cc475a7-7e11-497f-b9e6-fa0a47525f6f">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1cc475a7-7e11-497f-b9e6-fa0a47525f6f">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -42,18 +42,18 @@ ORDER BY zone.name desc]]>
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#6666FF" uuid="dc329a74-1369-4784-8d1f-654c837b287b"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="112ade39-6219-4a0b-92f0-8ec4775746e9"/>
+					<reportElement style="Title" x="0" y="0" width="451" height="66" uuid="112ade39-6219-4a0b-92f0-8ec4775746e9"/>
 					<textElement>
 						<font isBold="false"/>
 					</textElement>
-					<text><![CDATA[Cherry Title]]></text>
+					<text><![CDATA[Pedidos de las Fechas]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="SubTitle" x="157" y="66" width="249" height="29" uuid="e347d1f7-431b-48b3-bcb5-e5395eb05fa7"/>
 					<textElement>
 						<font size="22" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Cherry SubTitle]]></text>
+					<text><![CDATA[]]></text>
 				</staticText>
 			</frame>
 			<frame>
@@ -76,7 +76,36 @@ ORDER BY zone.name desc]]>
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="26" splitType="Stretch"/>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="31" height="26" uuid="d070a50e-523d-4920-ba0c-6e17ee40e17b"/>
+				<textElement>
+					<font fontName="Microsoft YaHei" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Del:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="33" y="0" width="73" height="26" uuid="a8eee1ef-ac27-4555-b2a4-759afe43ca83"/>
+				<textElement>
+					<font fontName="Microsoft YaHei" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fecha1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="106" y="0" width="51" height="26" uuid="3b6e2276-49c1-489f-9153-f7d0ecc16a99"/>
+				<textElement>
+					<font fontName="Microsoft YaHei" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hasta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="157" y="0" width="73" height="26" uuid="4465b127-722b-4a8c-8f3f-f89baaef3f9e"/>
+				<textElement>
+					<font fontName="Microsoft YaHei" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fecha2}]]></textFieldExpression>
+			</textField>
+		</band>
 	</columnHeader>
 	<detail>
 		<band height="93" splitType="Stretch">

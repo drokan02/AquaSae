@@ -37,6 +37,7 @@ public class InicioController implements KeyListener,ActionListener,MouseListene
     private final VistaInicio vistaInicio;
     private final FormPedido formPedido;
     private ArrayList <Pedido> pedidos;
+    private ArrayList <Cliente> nuevosP;
     private ArrayList <Cliente> clientes;
     private ArrayList <Producto> productos;
     private Pedido aux;
@@ -85,7 +86,7 @@ public class InicioController implements KeyListener,ActionListener,MouseListene
     public void actionPerformed(ActionEvent e) {
        if(e.getSource() == vistaInicio.btnImprimir){
            Map params = new HashMap();
-                params.put("fecha", fecha());
+                params.put("fecha", fecha(-1));
                 String reporte = "zonaPedidos";
                 new Reporte().mostrarReporte(reporte, params,principal);
        } 
@@ -218,6 +219,14 @@ public class InicioController implements KeyListener,ActionListener,MouseListene
         setTamanioCol(vistaInicio.jtPedidos.getColumnModel());
     }
 
+    private void nuevosPedidos(){
+        PedidoDao p = new PedidoDao();
+        nuevosP = p.nuevosPedidos(fecha(-10));
+        if(nuevosP.size()>0){
+            JOptionPane.showMessageDialog(vistaInicio, "De algunos clientes esta por caducar su producto ");
+        }
+    }
+    
     private void registrarPedido() {
       PedidoDao p = new PedidoDao();  
       Pedido newPedido = new Pedido();
@@ -370,9 +379,9 @@ public class InicioController implements KeyListener,ActionListener,MouseListene
         return res;
     }
     
-    private String fecha(){
+    private String fecha(int dias){
         Calendar hoy = Calendar.getInstance();
-        hoy.add(Calendar.DATE, -1);
+        hoy.add(Calendar.DATE, dias);
         Date d = hoy.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
         JOptionPane.showMessageDialog(principal, sdf.format(d));

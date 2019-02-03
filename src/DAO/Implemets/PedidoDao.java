@@ -266,4 +266,32 @@ public class PedidoDao implements Dao<Pedido>{
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         return sdf.format(date);
     }
+    
+   public ArrayList<Cliente> nuevosPedidos(String fecha) {
+        ArrayList<Cliente> res = new ArrayList<>();
+        conn = new Connector();
+        conn.conectar();
+        con = conn.getConexion();
+//        This query is to find description in client or prodict tables.
+        String list = "SELECT client_prod.id_client FROM client_prod "
+                + "WHERE fecha_pedido = '"+fecha+"'";
+    try {
+      st = con.createStatement();
+      
+      rt = st.executeQuery(list);
+      //mientras rt tenga datos se iterara
+      while (rt.next()) {
+        Cliente cliente = new Cliente();
+        ClienteDao c = new ClienteDao();
+        cliente.setId(rt.getInt(1));
+        cliente = c.searchById(cliente);
+        res.add(cliente);
+      }
+      conn.desconectar();
+    } catch (SQLException ex) {
+      JOptionPane.showMessageDialog(null, ex);
+    }
+    return res;
+    }
+    
 }   
