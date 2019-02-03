@@ -1,8 +1,4 @@
-    /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controlador;
 
 import DAO.Implemets.ClienteDao;
@@ -16,6 +12,7 @@ import Modelo.Zona;
 import Vista.Pedido.FormPedido;
 import Vista.Pedido.ListaPedido;
 import Vista.Principal;
+import Vista.VistaInicio;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,24 +27,22 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
-public class PedidoController implements KeyListener,ActionListener,MouseListener{
-    
-    private final ListaPedido listPedido;
+public class InicioController implements KeyListener,ActionListener,MouseListener{
+
+    private final VistaInicio vistaInicio;
     private final FormPedido formPedido;
     private ArrayList <Pedido> pedidos;
     private ArrayList <Cliente> clientes;
     private ArrayList <Producto> productos;
-    // aux is to determinate the id's pedido to update
     private Pedido aux;
     // This variable has code value of actual Zona
     int actualRow;
     
-    public PedidoController(ListaPedido listPedido){
-        this.listPedido = listPedido;
+    public InicioController(VistaInicio vistaInicio){
+        this.vistaInicio = vistaInicio;
         this.formPedido = new FormPedido();
         pedidos = new ArrayList();
         actualRow = -1;
-        aux = new Pedido();
         agregarEventos();
         llenarTabla();
         formPedido.txtDireccion.setEditable(false);
@@ -70,7 +65,7 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
             if(e.getSource() == formPedido.txtCantidad){
                 calcularTotal();
             }
-             if(e.getSource() == listPedido.txtBuscar){
+             if(e.getSource() == vistaInicio.txtBuscar){
              Validador.validarLetrasMasEspacioMasNumero(e);
              llenarTabla();
             }
@@ -82,56 +77,33 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == listPedido.btnPedido){
-            System.out.println("Pressed Button");
-            llenarCombos();
-            formPedido.txtTitulo.setText("REGISTRAR PEDIDO");
-            formPedido.btnRegistrar.setText("Registrar");
-            MenuController.cambiarPanel(formPedido);
-            
-        }
-        
-        if(e.getSource()== formPedido.btnRegistrar){
-            if(formPedido.btnRegistrar.getText().equals("Actualizar")){
-                MenuController.cambiarPanel(listPedido);
-                System.out.println(aux.getId()+"<-------------------------------------");
-                actualizarPedido(aux.getId());
-                llenarTabla();
-            }if(formPedido.btnRegistrar.getText().equals("Registrar")){
-                
-                MenuController.cambiarPanel(listPedido);
-                registrarPedido();
-                llenarTabla();
-            }
-            
-        }
-        
-        if(e.getSource() == formPedido.btnCancelar){
-             MenuController.cambiarPanel(listPedido);
-             vaciarFormulario();
-        }
+
     }
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        int fila = listPedido.jtPedidos.rowAtPoint(me.getPoint());
-        int columna = listPedido.jtPedidos.columnAtPoint(me.getPoint());
-        DefaultTableModel modelo = (DefaultTableModel) listPedido.jtPedidos.getModel();
+        int fila = vistaInicio.jtPedidos.rowAtPoint(me.getPoint());
+        int columna = vistaInicio.jtPedidos.columnAtPoint(me.getPoint());
+        DefaultTableModel modelo = (DefaultTableModel) vistaInicio.jtPedidos.getModel();
 //        // In variable 'zonaSeleccionada' I just storage the value 'id'(codigo) from the row selected.
         String pedidoSeleccionado = modelo.getValueAt(fila, 0).toString();
         pedidoSeleccionado.trim();
+        System.out.println("Pedido seleccionado para ser eliminado" + pedidoSeleccionado);
         actualRow = Integer.parseInt(pedidoSeleccionado);
         aux = pedidos.get(actualRow-1);
         //eliminar fila
-        if( columna == 9){
+        if( columna == 8){
             int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro de Eliminar?", "Alerta!", 
                                                     JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
             if( resp == 0){
-                eliminarPedido(aux.getId());
+                // In variable 'eliminar' I just storage the value 'id'(codigo) from the row selected.
+                actualRow = Integer.parseInt(pedidoSeleccionado);
+                eliminarPedido(actualRow);
             }            
-        }else if(columna == 8){
+        }else if(columna == 7){
             // Check dates to edit
             llenarCombos();
+            int codigoEditar = Integer.parseInt(modelo.getValueAt(fila, 0).toString());
             formPedido.btnRegistrar.setText("Actualizar");
             formularioEditar(aux.getId());
             formPedido.txtTitulo.setText("EDITAR PEDIDO");
@@ -160,16 +132,8 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
     }
     
     private void agregarEventos(){
-        formPedido.txtDireccion.addKeyListener(this);
-        formPedido.txtZona.addKeyListener(this);
-        formPedido.txtPrecio.addKeyListener(this);
-        formPedido.txtCantidad.addKeyListener(this);
-        formPedido.txtTotal.addKeyListener(this);
-        listPedido.txtBuscar.addKeyListener(this);
-        formPedido.btnCancelar.addActionListener(this);
-        formPedido.btnRegistrar.addActionListener(this);
-        listPedido.btnPedido.addActionListener(this);
-        listPedido.jtPedidos.addMouseListener(this);
+        vistaInicio.txtBuscar.addKeyListener(this);
+        vistaInicio.jtPedidos.addMouseListener(this);
         formPedido.setFocusTraversalPolicy(new FocusTraversalOnArray(
                 new Component[]{formPedido.comCliente
                 })
@@ -210,8 +174,8 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
                 return false;
             }
         };
-        listPedido.jtPedidos.setDefaultRenderer(Object.class, new Render());
-        listPedido.jtPedidos.setModel(modelo);
+        vistaInicio.jtPedidos.setDefaultRenderer(Object.class, new Render());
+        vistaInicio.jtPedidos.setModel(modelo);
         modelo.addColumn("N° Pedido");
         modelo.addColumn("Zona");
         modelo.addColumn("Cliente");
@@ -223,8 +187,8 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
         modelo.addColumn("");
         modelo.addColumn("");
         PedidoDao p = new PedidoDao();
-        String descripcion = listPedido.txtBuscar.getText();
-        pedidos = p.list(descripcion);
+        String descripcion = vistaInicio.txtBuscar.getText();
+        pedidos = p.listToDeliver(descripcion);
         int contador=1;
         for (Pedido pedido : pedidos){
             Object [] fila = new Object[10];
@@ -241,7 +205,7 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
             modelo.addRow(fila);
             contador++;
         }
-        setTamanioCol(listPedido.jtPedidos.getColumnModel());
+        setTamanioCol(vistaInicio.jtPedidos.getColumnModel());
     }
 
     private void registrarPedido() {
@@ -389,6 +353,5 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
         return res;
     }
     
+
 }
-
-
