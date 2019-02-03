@@ -12,6 +12,7 @@ import Vista.Pedido.ListaPedido;
 import Vista.Principal;
 import Vista.Productos.FormProducto;
 import Vista.Productos.ListaProductos;
+import Vista.Reporte.Reportes;
 import Vista.VistaInicio;
 import Vista.Zonas.ListaZonas;
 import java.awt.Color;
@@ -21,6 +22,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JPanel;
 import rsbuttom.RSButtonMetro;
 
@@ -84,10 +87,14 @@ public class MenuController implements ActionListener,WindowListener{
         
         if(e.getSource() == principal.btReporte){
             seleccionarBoton(principal.btReporte);
+            Reportes reportes = new Reportes();
+            cambiarPanel(reportes);
+            ReporteController repCont = new ReporteController(reportes,principal);
         }
         
         if(e.getSource() == principal.btCerrar){
-            principal.dispose();
+            System.exit(0);
+            //principal.dispose();
         }
         
         if(e.getSource() == principal.btMinim){
@@ -195,6 +202,7 @@ public class MenuController implements ActionListener,WindowListener{
         container.revalidate();
         container.repaint();
     }
+    
 }
 
 

@@ -211,8 +211,8 @@ public class PedidoDao implements Dao<Pedido>{
     }
     
     public String formatDate() {
-    Date date = new Date();
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-    return sdf.format(date);
-}
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        return sdf.format(date);
+    }
 }   
