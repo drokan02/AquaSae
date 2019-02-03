@@ -123,13 +123,13 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
         actualRow = Integer.parseInt(pedidoSeleccionado);
         aux = pedidos.get(actualRow-1);
         //eliminar fila
-        if( columna == 9){
+        if( columna == 8){
             int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro de Eliminar?", "Alerta!", 
                                                     JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
             if( resp == 0){
                 eliminarPedido(aux.getId());
             }            
-        }else if(columna == 8){
+        }else if(columna == 7){
             // Check dates to edit
             llenarCombos();
             formPedido.btnRegistrar.setText("Actualizar");
@@ -219,7 +219,6 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
         modelo.addColumn("Fecha");
         modelo.addColumn("Cantidad");
         modelo.addColumn("Total");
-        modelo.addColumn("Entregado");
         modelo.addColumn("");
         modelo.addColumn("");
         PedidoDao p = new PedidoDao();
@@ -235,9 +234,8 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
             fila[4] = pedido.getFecha_pedido();
             fila[5] = pedido.getCantidad();
             fila[6] = pedido.getTotal();
-            fila[7] = ceroFalse(pedido.getEntregado());
-            fila[8] = Principal.btEditar;
-            fila[9] = Principal.btEliminar;
+            fila[7] = Principal.btEditar;
+            fila[8] = Principal.btEliminar;
             modelo.addRow(fila);
             contador++;
         }
@@ -286,15 +284,22 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
     }
 
     private void setTamanioCol(TableColumnModel col) {
-      col.getColumn(0).setPreferredWidth(100);
-      col.getColumn(1).setPreferredWidth(100);
-      col.getColumn(2).setPreferredWidth(100);
-      col.getColumn(3).setPreferredWidth(100);
+      col.getColumn(0).setPreferredWidth(50);
+      col.getColumn(0).setCellRenderer(Tabla.alinearCentro());
+      col.getColumn(1).setPreferredWidth(200);
+      col.getColumn(1).setCellRenderer(Tabla.alinearCentro());
+      col.getColumn(2).setPreferredWidth(200);
+      col.getColumn(2).setCellRenderer(Tabla.alinearCentro());
+      col.getColumn(3).setPreferredWidth(200);
+      col.getColumn(3).setCellRenderer(Tabla.alinearCentro());
       col.getColumn(4).setPreferredWidth(100);
-      col.getColumn(5).setPreferredWidth(100);
-      col.getColumn(6).setPreferredWidth(100);
-      col.getColumn(7).setPreferredWidth(50);
-      col.getColumn(8).setPreferredWidth(50);
+      col.getColumn(4).setCellRenderer(Tabla.alinearCentro());
+      col.getColumn(5).setPreferredWidth(50);
+      col.getColumn(5).setCellRenderer(Tabla.alinearDerecha());
+      col.getColumn(6).setPreferredWidth(50);
+      col.getColumn(6).setCellRenderer(Tabla.alinearDerecha());
+      col.getColumn(7).setPreferredWidth(5);
+      col.getColumn(8).setPreferredWidth(5);
     }
 
     private void vaciarFormulario() {

@@ -6,8 +6,10 @@
 package Vista;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.MouseInfo;
 import java.awt.Point;
+import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.UIManager;
@@ -25,6 +27,8 @@ public class Principal extends javax.swing.JFrame {
      */
     
     public Principal() {
+        Image iconoPropio = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/icono.png"));
+        setIconImage(iconoPropio);
         initComponents();
     }
 
@@ -320,11 +324,11 @@ public class Principal extends javax.swing.JFrame {
         pnlCentro.setLayout(pnlCentroLayout);
         pnlCentroLayout.setHorizontalGroup(
             pnlCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
         );
         pnlCentroLayout.setVerticalGroup(
             pnlCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();

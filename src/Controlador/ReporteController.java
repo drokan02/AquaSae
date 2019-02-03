@@ -42,24 +42,28 @@ public class ReporteController implements ActionListener
         }
         
         if(e.getSource() == report.btnFecha){
-            Map params = new HashMap();
-            params.put("fecha", getFecha());
-            String reporte = "pedidos";
-            //Reporte.mostrarReporte(reporte, params);
+            if(validarFecha()){
+                Map params = new HashMap();
+                params.put("fecha", formatDate(getFecha()));
+                String reporte = "zonaPedidos";
+                new Reporte().mostrarReporte(reporte, params,principal);
+            }   
         }
+        
+        
         
         if(e.getSource() == report.btnMes){
             Map params = new HashMap();
             params.put("mes", getMes());
-            String reporte = "pedidos";
-            //Reporte.mostrarReporte(reporte, params);            
+            String reporte = "pedidosMensual";
+            new Reporte().mostrarReporte(reporte, params,principal);            
         }
         
         if(e.getSource() == report.btnAnio){
             Map params = new HashMap();
-            params.put("anio", getAnio());
-            String reporte = "pedidos";
-            //Reporte.mostrarReporte(reporte, params);           
+            params.put("mes", getAnio());
+            String reporte = "pedidosAnual";
+            new Reporte().mostrarReporte(reporte, params,principal);           
         }
         
     }
@@ -100,7 +104,9 @@ public class ReporteController implements ActionListener
     }
 
     private String getAnio() {
+        JOptionPane.showMessageDialog(report,report.dtAnio.getYear()+"");
         return report.dtAnio.getYear()+"";
+        
     }
 
      public String formatDate(Date date) {
@@ -130,5 +136,19 @@ public class ReporteController implements ActionListener
        if(!res)
         JOptionPane.showMessageDialog(report,mensaje, "Alerta!", JOptionPane.ERROR_MESSAGE);
        return res;
+    }
+    
+    private boolean validarFecha(){
+        boolean res = true;
+        String mensaje = "";
+        Date fecha =  getFecha();
+        if(fecha == null){
+            res = false;
+            mensaje = "Debe seleccionar una fecha";
+        }
+        if(!res){
+            JOptionPane.showMessageDialog(report,mensaje, "Alerta!", JOptionPane.ERROR_MESSAGE);
+        }
+        return res;
     }
 }

@@ -11,8 +11,7 @@ import java.awt.Dimension;
 import java.sql.Connection;
 import java.util.Map;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -47,9 +46,9 @@ public class Reporte {
         ventana.setVisible(true);
         conn.conectar();
       }
-      catch (Exception e)
+      catch (JRException e)
       {
-          JOptionPane.showMessageDialog(null, e);
+         // JOptionPane.showMessageDialog(null, e);
       }
     }
     

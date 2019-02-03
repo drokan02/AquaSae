@@ -10,7 +10,6 @@ import Modelo.Pedido;
 import Modelo.Producto;
 import Modelo.Zona;
 import Vista.Pedido.FormPedido;
-import Vista.Pedido.ListaPedido;
 import Vista.Principal;
 import Vista.VistaInicio;
 import java.awt.Component;
@@ -22,13 +21,19 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
 public class InicioController implements KeyListener,ActionListener,MouseListener{
-
+    
+    private final Principal principal;
     private final VistaInicio vistaInicio;
     private final FormPedido formPedido;
     private ArrayList <Pedido> pedidos;
@@ -38,9 +43,10 @@ public class InicioController implements KeyListener,ActionListener,MouseListene
     // This variable has code value of actual Zona
     int actualRow;
     
-    public InicioController(VistaInicio vistaInicio){
+    public InicioController(VistaInicio vistaInicio,Principal principal1){
         this.vistaInicio = vistaInicio;
         this.formPedido = new FormPedido();
+        this.principal = principal1;
         pedidos = new ArrayList();
         actualRow = -1;
         agregarEventos();
@@ -77,7 +83,12 @@ public class InicioController implements KeyListener,ActionListener,MouseListene
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+       if(e.getSource() == vistaInicio.btnImprimir){
+           Map params = new HashMap();
+                params.put("fecha", fecha());
+                String reporte = "zonaPedidos";
+                new Reporte().mostrarReporte(reporte, params,principal);
+       } 
     }
 
     @Override
@@ -132,6 +143,7 @@ public class InicioController implements KeyListener,ActionListener,MouseListene
     }
     
     private void agregarEventos(){
+        vistaInicio.btnImprimir.addActionListener(this);
         vistaInicio.txtBuscar.addKeyListener(this);
         vistaInicio.jtPedidos.addMouseListener(this);
         formPedido.setFocusTraversalPolicy(new FocusTraversalOnArray(
@@ -183,7 +195,6 @@ public class InicioController implements KeyListener,ActionListener,MouseListene
         modelo.addColumn("Fecha");
         modelo.addColumn("Cantidad");
         modelo.addColumn("Total");
-        modelo.addColumn("Entregado");
         modelo.addColumn("");
         modelo.addColumn("");
         PedidoDao p = new PedidoDao();
@@ -199,9 +210,8 @@ public class InicioController implements KeyListener,ActionListener,MouseListene
             fila[4] = pedido.getFecha_pedido();
             fila[5] = pedido.getCantidad();
             fila[6] = pedido.getTotal();
-            fila[7] = ceroFalse(pedido.getEntregado());
-            fila[8] = Principal.btEditar;
-            fila[9] = Principal.btEliminar;
+            fila[7] = Principal.btEditar;
+            fila[8] = Principal.btEliminar;
             modelo.addRow(fila);
             contador++;
         }
@@ -250,15 +260,22 @@ public class InicioController implements KeyListener,ActionListener,MouseListene
     }
 
     private void setTamanioCol(TableColumnModel col) {
-      col.getColumn(0).setPreferredWidth(100);
-      col.getColumn(1).setPreferredWidth(100);
-      col.getColumn(2).setPreferredWidth(100);
-      col.getColumn(3).setPreferredWidth(100);
+      col.getColumn(0).setPreferredWidth(50);
+      col.getColumn(0).setCellRenderer(Tabla.alinearCentro());
+      col.getColumn(1).setPreferredWidth(200);
+      col.getColumn(1).setCellRenderer(Tabla.alinearCentro());
+      col.getColumn(2).setPreferredWidth(200);
+      col.getColumn(2).setCellRenderer(Tabla.alinearCentro());
+      col.getColumn(3).setPreferredWidth(200);
+      col.getColumn(3).setCellRenderer(Tabla.alinearCentro());
       col.getColumn(4).setPreferredWidth(100);
-      col.getColumn(5).setPreferredWidth(100);
-      col.getColumn(6).setPreferredWidth(100);
-      col.getColumn(7).setPreferredWidth(50);
-      col.getColumn(8).setPreferredWidth(50);
+      col.getColumn(4).setCellRenderer(Tabla.alinearCentro());
+      col.getColumn(5).setPreferredWidth(50);
+      col.getColumn(5).setCellRenderer(Tabla.alinearDerecha());
+      col.getColumn(6).setPreferredWidth(50);
+      col.getColumn(6).setCellRenderer(Tabla.alinearDerecha());
+      col.getColumn(7).setPreferredWidth(5);
+      col.getColumn(8).setPreferredWidth(5);
     }
 
     private void vaciarFormulario() {
@@ -353,5 +370,12 @@ public class InicioController implements KeyListener,ActionListener,MouseListene
         return res;
     }
     
-
+    private String fecha(){
+        Calendar hoy = Calendar.getInstance();
+        hoy.add(Calendar.DATE, -1);
+        Date d = hoy.getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
+        JOptionPane.showMessageDialog(principal, sdf.format(d));
+        return sdf.format(d);
+    }
 }

@@ -21,7 +21,6 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -52,7 +51,7 @@ public class ClienteController implements KeyListener,ActionListener,MouseListen
             formCliente.txtTitulo.setText("REGISTRAR CLIENTE");
             formCliente.btnRegistrar.setText("Registrar");
             agregarZonas();
-           
+            limpiar();
             MenuController.cambiarPanel(formCliente);
         }
         
@@ -177,6 +176,17 @@ public class ClienteController implements KeyListener,ActionListener,MouseListen
         );
     }
      
+    private void limpiar(){
+        formCliente.txtNombre.setText("");
+        formCliente.txtApellido.setText("");
+        formCliente.txtDireccion.setText("");
+        formCliente.comZona.select(0);
+        formCliente.txtTelefono.setText("");
+        formCliente.txtTelefono1.setText("");
+        formCliente.txtTelefono2.setText("");
+        formCliente.txtTelefono3.setText("");
+        formCliente.txtTelefono4.setText("");
+    }
      private void agregarZonas(){
          if(formCliente.comZona.getItemCount() == 0){
                 zonas = new ZonaDao().list("");
@@ -228,10 +238,15 @@ public class ClienteController implements KeyListener,ActionListener,MouseListen
     
     private void setTamanioColumna(TableColumnModel col){
        col.getColumn(0).setPreferredWidth(5);
+       col.getColumn(0).setCellRenderer(Tabla.alinearCentro());
        col.getColumn(1).setPreferredWidth(200);
+       col.getColumn(1).setCellRenderer(Tabla.alinearCentro());
        col.getColumn(2).setPreferredWidth(200);
+       col.getColumn(2).setCellRenderer(Tabla.alinearCentro());
        col.getColumn(3).setPreferredWidth(150);
+       col.getColumn(3).setCellRenderer(Tabla.alinearCentro());
        col.getColumn(4).setPreferredWidth(150);
+       col.getColumn(4).setCellRenderer(Tabla.alinearCentro());
        col.getColumn(5).setPreferredWidth(3);
        col.getColumn(6).setPreferredWidth(3);
        col.getColumn(7).setPreferredWidth(3);

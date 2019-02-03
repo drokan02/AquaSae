@@ -42,7 +42,9 @@ public class MenuController implements ActionListener,WindowListener{
     public void mostrar(){
         principal.btInicio.requestFocus();
         principal.setExtendedState(MAXIMIZED_BOTH);
-        cambiarPanel(new VistaInicio());
+        VistaInicio inicio = new VistaInicio();
+        new InicioController(inicio,principal);
+        cambiarPanel(inicio);
         principal.setVisible(true);
         //principal.setLocationRelativeTo(null);
     }
@@ -52,8 +54,8 @@ public class MenuController implements ActionListener,WindowListener{
         if(e.getSource() == principal.btInicio){
             VistaInicio inicio = new VistaInicio();
             seleccionarBoton(principal.btInicio);
+            InicioController iniCont = new InicioController(inicio,principal);
             cambiarPanel(inicio);
-            InicioController iniCont = new InicioController(inicio);
         }
         
         if(e.getSource() == principal.btZonas){
@@ -109,7 +111,7 @@ public class MenuController implements ActionListener,WindowListener{
         VistaInicio inicio = new VistaInicio();
         seleccionarBoton(principal.btInicio);
         cambiarPanel(inicio);
-        InicioController iniCont = new InicioController(inicio);
+        InicioController iniCont = new InicioController(inicio,principal);
     }
 
     @Override
