@@ -187,10 +187,15 @@ public class ProductoController implements KeyListener,ActionListener,MouseListe
     
     private void setTamanioColumna(TableColumnModel col){
        col.getColumn(0).setPreferredWidth(5);
-       col.getColumn(1).setPreferredWidth(200);
-       col.getColumn(2).setPreferredWidth(200);
+       col.getColumn(0).setCellRenderer(Tabla.alinearCentro());
+       col.getColumn(1).setPreferredWidth(300);
+       col.getColumn(1).setCellRenderer(Tabla.alinearCentro());
+       col.getColumn(2).setPreferredWidth(300);
+       col.getColumn(2).setCellRenderer(Tabla.alinearCentro());
        col.getColumn(3).setPreferredWidth(100);
+       col.getColumn(3).setCellRenderer(Tabla.alinearDerecha());
        col.getColumn(4).setPreferredWidth(100);
+       col.getColumn(4).setCellRenderer(Tabla.alinearDerecha());
        col.getColumn(5).setPreferredWidth(3);
        col.getColumn(6).setPreferredWidth(3);
     }

@@ -189,14 +189,14 @@ public class ZonaController implements KeyListener,ActionListener,MouseListener{
             fila[3] = Principal.btEliminar;
             modelo.addRow(fila);
         }
-        setTamanioCol(listZona.jtZonas.getColumnModel());
+        setTamanioCol(listZona.jtZonas.getColumnModel());   
     }
     
     private void setTamanioCol(TableColumnModel col){
-       col.getColumn(0).setPreferredWidth(1);
-       col.getColumn(1).setPreferredWidth(300);
-       col.getColumn(2).setPreferredWidth(1);
-       col.getColumn(3).setPreferredWidth(1);
+       col.getColumn(0).setPreferredWidth(5);
+       col.getColumn(1).setPreferredWidth(900);
+       col.getColumn(2).setPreferredWidth(5);
+       col.getColumn(3).setPreferredWidth(5);
     }
     
     private void registrarZona(){

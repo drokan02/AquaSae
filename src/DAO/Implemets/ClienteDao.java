@@ -239,6 +239,7 @@ public class ClienteDao implements Dao<Cliente>{
               a.setId(rt.getInt("id_client"));
               a.setNombre(rt.getString("nombre"));
               a.setApellidos(rt.getString("apellido"));
+              a.setDireccion(rt.getString("direccion"));
               a.setZona(zona);
               a.setTelefonos(telefonos);
           }
@@ -303,6 +304,7 @@ public class ClienteDao implements Dao<Cliente>{
               a.setId(rt.getInt("id_client"));
               a.setNombre(rt.getString("nombre"));
               a.setApellidos(rt.getString("apellido"));
+              a.setDireccion(rt.getString("direccion"));
               a.setZona(zona);
               a.setTelefonos(telefonos);
           }

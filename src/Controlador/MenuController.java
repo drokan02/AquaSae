@@ -12,6 +12,7 @@ import Vista.Pedido.ListaPedido;
 import Vista.Principal;
 import Vista.Productos.FormProducto;
 import Vista.Productos.ListaProductos;
+import Vista.Reporte.Reportes;
 import Vista.VistaInicio;
 import Vista.Zonas.ListaZonas;
 import java.awt.Color;
@@ -21,6 +22,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JPanel;
 import rsbuttom.RSButtonMetro;
 
@@ -39,7 +42,9 @@ public class MenuController implements ActionListener,WindowListener{
     public void mostrar(){
         principal.btInicio.requestFocus();
         principal.setExtendedState(MAXIMIZED_BOTH);
-        cambiarPanel(new VistaInicio());
+        VistaInicio inicio = new VistaInicio();
+        new InicioController(inicio,principal);
+        cambiarPanel(inicio);
         principal.setVisible(true);
         //principal.setLocationRelativeTo(null);
     }
@@ -49,8 +54,8 @@ public class MenuController implements ActionListener,WindowListener{
         if(e.getSource() == principal.btInicio){
             VistaInicio inicio = new VistaInicio();
             seleccionarBoton(principal.btInicio);
+            InicioController iniCont = new InicioController(inicio,principal);
             cambiarPanel(inicio);
-            InicioController iniCont = new InicioController(inicio);
         }
         
         if(e.getSource() == principal.btZonas){
@@ -85,10 +90,14 @@ public class MenuController implements ActionListener,WindowListener{
         
         if(e.getSource() == principal.btReporte){
             seleccionarBoton(principal.btReporte);
+            Reportes reportes = new Reportes();
+            cambiarPanel(reportes);
+            ReporteController repCont = new ReporteController(reportes,principal);
         }
         
         if(e.getSource() == principal.btCerrar){
-            principal.dispose();
+            System.exit(0);
+            //principal.dispose();
         }
         
         if(e.getSource() == principal.btMinim){
@@ -102,7 +111,7 @@ public class MenuController implements ActionListener,WindowListener{
         VistaInicio inicio = new VistaInicio();
         seleccionarBoton(principal.btInicio);
         cambiarPanel(inicio);
-        InicioController iniCont = new InicioController(inicio);
+        InicioController iniCont = new InicioController(inicio,principal);
     }
 
     @Override
@@ -199,6 +208,7 @@ public class MenuController implements ActionListener,WindowListener{
         container.revalidate();
         container.repaint();
     }
+    
 }
 
 
