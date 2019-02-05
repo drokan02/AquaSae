@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.Consola;
 import Controlador.MenuController;
 
 /**
@@ -17,14 +18,15 @@ public class Main extends javax.swing.JFrame {
      * Creates new form Main
      */
     public Main() {
+        Consola.ejecutarCMD("\\xampp\\mysql_start.bat");
         Principal view = new Principal();
         MenuController controller = new MenuController(view);
         controller.mostrar();  
         initComponents();
-        
         this.dispose();
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -371,6 +371,13 @@ public class ClienteController implements KeyListener,ActionListener,MouseListen
     
     private Zona getZona(){
         int i = formCliente.comZona.getSelectedIndex()-1;
+        if(i < 0){
+           Zona z= new Zona(); 
+           z.setNombre("");
+           return z;
+        }
+            
+        else
         return zonas.get(i);
     }
     

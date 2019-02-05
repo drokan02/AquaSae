@@ -96,6 +96,7 @@ public class MenuController implements ActionListener,WindowListener{
         }
         
         if(e.getSource() == principal.btCerrar){
+            Consola.ejecutarCMD("\\xampp\\mysql_stop.bat");
             System.exit(0);
             //principal.dispose();
         }
