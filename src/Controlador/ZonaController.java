@@ -39,7 +39,8 @@ public class ZonaController implements KeyListener,ActionListener,MouseListener{
         actualRow = -1;
         agregarEventos();
         llenarTabla();
-        formZona.txtCodigo.setEditable(false);
+        formZona.txtCodigo.setVisible(false);
+        
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -55,16 +56,11 @@ public class ZonaController implements KeyListener,ActionListener,MouseListener{
         }
         
         if(e.getSource()== formZona.btnRegistrar){
-            if(formZona.btnRegistrar.getText().equals("Actualizar")){
-                MenuController.cambiarPanel(listZona);
+            if(formZona.btnRegistrar.getText().equals("Actualizar")){         
                 actualizarZona(actualRow);
-                llenarTabla();
             }if(formZona.btnRegistrar.getText().equals("Registrar")){
-                MenuController.cambiarPanel(listZona);
                 registrarZona();
-                llenarTabla();
             }
-            System.out.println("HERE PLEASE");
             
         }
         
@@ -115,7 +111,6 @@ public class ZonaController implements KeyListener,ActionListener,MouseListener{
             int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro de Eliminar?", "Alerta!", 
                                                     JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
             if( resp == 0){
-                // In variable 'eliminar' I just storage the value 'id'(codigo) from the row selected.
                 actualRow = Integer.parseInt(zonaSeleccionada);
                 eliminarZona(actualRow);
             }            
@@ -201,34 +196,52 @@ public class ZonaController implements KeyListener,ActionListener,MouseListener{
     
     private void registrarZona(){
       ZonaDao z = new ZonaDao();  
-      
       Zona newZone = new Zona();
-     
-      String nombreReg = formZona.txtNombre.getText(); 
-      newZone.setNombre(nombreReg);
-      //Review this because the code's zona is not generating automatically.
-      
-      z.insert(newZone);
+      String mensaje = validarCampos();
+      if(mensaje.equals("")){
+            String nombreReg = formZona.txtNombre.getText(); 
+            newZone.setNombre(nombreReg);
+             mensaje = z.insert(newZone);
+             MenuController.cambiarPanel(listZona);
+            JOptionPane.showMessageDialog(listZona, mensaje);
+            llenarTabla();
+            
+        }else{
+            JOptionPane.showMessageDialog(formZona, mensaje);
+        }   
+
       vaciarFormulario();
     }
 
 
     private void eliminarZona(int eliminar) {
+      String mensaje;
       ZonaDao z = new ZonaDao();
       Zona zonaEliminar = new Zona();
       zonaEliminar.setId(eliminar);
-      z.delete(zonaEliminar);
+      mensaje = z.delete(zonaEliminar);
       llenarTabla();
+      JOptionPane.showMessageDialog(formZona, mensaje);
     }
 
     private void actualizarZona(int row) {
       ZonaDao z = new ZonaDao();
       Zona zonaEditar = new Zona();
-      String nombreEdit = formZona.txtNombre.getText();
-      zonaEditar.setId(row);
-      zonaEditar.setNombre(nombreEdit);
-      z.edit(zonaEditar);
-      vaciarFormulario();
+      String mensaje = validarCampos();
+      if(mensaje.equals("")){
+        zonaEditar.setId(row);
+        String nombreEdit = formZona.txtNombre.getText();
+        zonaEditar.setNombre(nombreEdit);
+        mensaje = z.edit(zonaEditar);
+        llenarTabla();
+        MenuController.cambiarPanel(listZona);
+        JOptionPane.showMessageDialog(listZona, mensaje);
+        vaciarFormulario();
+      }
+      else{
+        JOptionPane.showMessageDialog(listZona, mensaje);
+
+      }
     }
     
     private void vaciarFormulario() {
@@ -246,6 +259,14 @@ public class ZonaController implements KeyListener,ActionListener,MouseListener{
             i-=1;
         }
         
+    }
+    
+    private String validarCampos(){
+        String mensaje = "";
+        if(formZona.txtNombre.getText().equals("")){
+            mensaje += "Debe ingresar el nombre  \n";
+        }
+        return mensaje;
     }
    
 }
