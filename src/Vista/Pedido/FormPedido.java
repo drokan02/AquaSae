@@ -46,22 +46,24 @@ public class FormPedido extends javax.swing.JPanel {
         comProducto = new java.awt.Choice();
         btnCancelar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
+        txtStock = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtTotal.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 570, 640, -1));
+        add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 620, 640, -1));
 
         txtCantidad.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 520, 640, -1));
+        add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 570, 640, -1));
 
         comCliente.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         add(comCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 640, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel9.setText("Total:");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 570, -1, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 620, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel8.setText("Cliente:");
@@ -69,7 +71,7 @@ public class FormPedido extends javax.swing.JPanel {
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel6.setText("Cantidad:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 520, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 570, -1, -1));
 
         txtTitulo.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
         txtTitulo.setForeground(new java.awt.Color(128, 128, 131));
@@ -94,13 +96,13 @@ public class FormPedido extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel5.setText("Precio:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 520, -1, -1));
 
         txtZona.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         add(txtZona, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 370, 640, -1));
 
         txtPrecio.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, 640, -1));
+        add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 520, 640, -1));
 
         comProducto.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         add(comProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, 640, -1));
@@ -111,7 +113,7 @@ public class FormPedido extends javax.swing.JPanel {
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(new javax.swing.border.MatteBorder(null));
         btnCancelar.setFocusPainted(false);
-        add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 670, 640, 30));
+        add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 720, 640, 30));
 
         btnRegistrar.setBackground(new java.awt.Color(51, 51, 255));
         btnRegistrar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -119,8 +121,24 @@ public class FormPedido extends javax.swing.JPanel {
         btnRegistrar.setText("Registrar");
         btnRegistrar.setBorder(new javax.swing.border.MatteBorder(null));
         btnRegistrar.setFocusPainted(false);
-        add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 620, 640, 30));
+        add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 670, 640, 30));
+
+        txtStock.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        txtStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStockActionPerformed(evt);
+            }
+        });
+        add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, 640, -1));
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel7.setText("Stock:");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStockActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStockActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -133,11 +151,13 @@ public class FormPedido extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     public javax.swing.JTextField txtCantidad;
     public javax.swing.JTextField txtDireccion;
     public javax.swing.JTextField txtPrecio;
+    public javax.swing.JTextField txtStock;
     public javax.swing.JLabel txtTitulo;
     public javax.swing.JTextField txtTotal;
     public javax.swing.JTextField txtZona;

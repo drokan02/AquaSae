@@ -33,7 +33,6 @@ public class FormZona extends javax.swing.JPanel {
 
         txtTitulo = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
@@ -51,10 +50,6 @@ public class FormZona extends javax.swing.JPanel {
 
         txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 640, -1));
-
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel2.setText("Codigo:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel8.setText("Nombre:");
@@ -84,7 +79,6 @@ public class FormZona extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnRegistrar;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
     public javax.swing.JTextField txtCodigo;
     public javax.swing.JTextField txtNombre;

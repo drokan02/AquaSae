@@ -5,6 +5,9 @@
  */
 package Controlador;
 
+import DAO.Implemets.PedidoDao;
+import Modelo.Pedido;
+import Modelo.Telefono;
 import Vista.Clientes.FormCliente;
 import Vista.Clientes.ListaCliente;
 import Vista.Pedido.FormPedido;
@@ -22,8 +25,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import rsbuttom.RSButtonMetro;
 
@@ -33,8 +38,10 @@ import rsbuttom.RSButtonMetro;
  */
 public class MenuController implements ActionListener,WindowListener{
     Principal principal;
+    ArrayList<Pedido> pedidos;
     public MenuController(Principal principal){
         this.principal = principal;
+        pedidos = new ArrayList<>();
         agregarEventos();
     }
     
@@ -113,6 +120,19 @@ public class MenuController implements ActionListener,WindowListener{
         seleccionarBoton(principal.btInicio);
         cambiarPanel(inicio);
         InicioController iniCont = new InicioController(inicio,principal);
+        pedidos = new PedidoDao().listAlert("");
+        if(!pedidos.isEmpty()){
+            String mensaje ="Tiene clientes con productos que caducan hoy!";
+            for(Pedido pedido: pedidos){
+                ArrayList<Telefono> telefonos= pedido.getCliente().getTelefonos();
+                mensaje= mensaje+"\n"+"Cliente: "+pedido.getCliente().getNombre()+" "+pedido.getCliente().getApellidos()+
+                       "\nFecha de pedido: "+pedido.getFecha_pedido()+"\n"+"Teléfonos: ";
+                for(Telefono telefono: telefonos){
+                    mensaje = mensaje+Integer.toString(telefono.getTelefono())+"  ";
+                }
+            }
+             JOptionPane.showMessageDialog(null, mensaje);
+        }
     }
 
     @Override
