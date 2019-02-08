@@ -54,6 +54,7 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
         formPedido.txtZona.setEditable(false);
         formPedido.txtPrecio.setEditable(false);
         formPedido.txtTotal.setEditable(false);
+        formPedido.txtStock.setEditable(false);
     }
     
     @Override
@@ -76,7 +77,8 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
             }
              if(e.getSource() == formPedido.txtCantidad){
              Validador.validarNumero(e);
-        }
+                 
+            }
             
     }
 
@@ -93,15 +95,10 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
         
         if(e.getSource()== formPedido.btnRegistrar){
             if(formPedido.btnRegistrar.getText().equals("Actualizar")){
-                MenuController.cambiarPanel(listPedido);
-                System.out.println(aux.getId()+"<-------------------------------------");
-                actualizarPedido(aux.getId());
+                actualizarPedido(aux);
                 llenarTabla();
             }if(formPedido.btnRegistrar.getText().equals("Registrar")){
-                
-                MenuController.cambiarPanel(listPedido);
                 registrarPedido();
-                llenarTabla();
             }
             
         }
@@ -176,32 +173,55 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
         );
     }
 
-    private void actualizarPedido(int row) {
+    private void actualizarPedido(Pedido aux) {
       PedidoDao p = new PedidoDao();
       Pedido pedidoEditar = new Pedido();
-      
-    for(Cliente cliente : clientes){
-              String fullName = cliente.getNombre()+ " " + cliente.getApellidos();
-              String selectedClient = formPedido.comCliente.getSelectedItem();
-              if((fullName.equals(selectedClient))){
-                  for(Producto producto : productos){
-                      String nomProd = producto.getNombre();
-                      String selectedProd = formPedido.comProducto.getSelectedItem();
-                      if(nomProd.equals(selectedProd)){
-                          pedidoEditar.setId(row);
-                          pedidoEditar.setCantidad(Integer.parseInt(formPedido.txtCantidad.getText()));
-                          pedidoEditar.setCliente(cliente);
-                          pedidoEditar.setProducto(producto);
-                          pedidoEditar.setEntregado(0);
-                          pedidoEditar.setTotal(Double.parseDouble(formPedido.txtTotal.getText()));
+      pedidoEditar = aux;
+      String mensaje = validarCampos();
+      if(mensaje.equals("")){
+            for(Cliente cliente : clientes){
+                      String fullName = cliente.getNombre()+ " " + cliente.getApellidos();
+                      String selectedClient = formPedido.comCliente.getSelectedItem();
+                      if((fullName.equals(selectedClient))){
+                          for(Producto producto : productos){
+                              String nomProd = producto.getNombre();
+                              String selectedProd = formPedido.comProducto.getSelectedItem();
+                              if(nomProd.equals(selectedProd)){
+                                  
+                                  int stockAntiguo = producto.getStock()+pedidoEditar.getCantidad();
+                                  int stockTemporal;
+                                  producto.setStock(stockAntiguo);
+                                  System.out.println("____-------------______---------------->"+pedidoEditar.getCantidad()+"------"+stockAntiguo);
+                                  stockTemporal = calcularStock(Integer.parseInt(formPedido.txtCantidad.getText()),
+                                    producto);
+                                  mensaje = validarStock(stockTemporal);
+                                  if(mensaje.equals("")){
+                                        pedidoEditar.setCantidad(Integer.parseInt(formPedido.txtCantidad.getText()));
+                                        pedidoEditar.setCliente(cliente);
+                                        pedidoEditar.setProducto(producto);
+                                        pedidoEditar.setTotal(Double.parseDouble(formPedido.txtTotal.getText()));
+                                        mensaje = p.edit(pedidoEditar);
+                                        producto.setStock(stockTemporal);
+                                        new ProductoDao().edit(producto);
+                                        vaciarFormulario();
+                                        MenuController.cambiarPanel(listPedido);
+                                        llenarTabla();
+                                        JOptionPane.showMessageDialog(listPedido, mensaje);
+                                        
+                                  }
+                                  
+                                    else{
+                                    JOptionPane.showMessageDialog(listPedido, mensaje);
+                                    }               
+                              }
+                          }
+
                       }
-                  }
-
-              }
-          }
-
-      p.edit(pedidoEditar);
-      vaciarFormulario();
+      }
+      }
+      else{
+            JOptionPane.showMessageDialog(listPedido, mensaje);
+      }
     }
 
     private void llenarTabla() {
@@ -245,41 +265,56 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
     private void registrarPedido() {
       PedidoDao p = new PedidoDao();  
       Pedido newPedido = new Pedido();
-      for(Cliente cliente : clientes){
-          String fullName = cliente.getNombre()+ " " + cliente.getApellidos();
-          String selectedClient = formPedido.comCliente.getSelectedItem();
-          if((fullName.equals(selectedClient))){
-              for(Producto producto : productos){
-                  String nomProd = producto.getNombre();
-                  String selectedProd = formPedido.comProducto.getSelectedItem();
-                  if(nomProd.equals(selectedProd)){
-                      newPedido.setCantidad(Integer.parseInt(formPedido.txtCantidad.getText()));
-                      newPedido.setCliente(cliente);
-                      newPedido.setProducto(producto);
-                      newPedido.setEntregado(0);
-                      newPedido.setTotal(Double.parseDouble(formPedido.txtTotal.getText()));
-                  }
-              }
-              
-          }
+      String mensaje = validarCampos();
+      if(mensaje.equals("")){
+            for(Cliente cliente : clientes){
+                String fullName = cliente.getNombre()+ " " + cliente.getApellidos();
+                String selectedClient = formPedido.comCliente.getSelectedItem();
+                if((fullName.equals(selectedClient))){
+                    for(Producto producto : productos){
+                        String nomProd = producto.getNombre();
+                        String selectedProd = formPedido.comProducto.getSelectedItem();
+                        if(nomProd.equals(selectedProd)){
+                            int stockTemporal;
+                            stockTemporal = calcularStock(Integer.parseInt(formPedido.txtCantidad.getText()),
+                                    producto);
+                            System.out.println("--------------------->>>>"+stockTemporal);
+                            mensaje = validarStock(stockTemporal);
+                            if(mensaje.equals("")){
+                                    newPedido.setCantidad(Integer.parseInt(formPedido.txtCantidad.getText()));
+                                    newPedido.setCliente(cliente);
+                                    newPedido.setProducto(producto);
+                                    producto.setStock(stockTemporal);
+                                    newPedido.setTotal(Double.parseDouble(formPedido.txtTotal.getText()));
+                                    mensaje = p.insert(newPedido);
+//                                    mensaje= mensaje +"\n" +new ProductoDao().edit(producto);
+                                    vaciarFormulario();
+                                    MenuController.cambiarPanel(listPedido);
+                                    llenarTabla();
+                                    JOptionPane.showMessageDialog(listPedido, mensaje);
+                                    
+                            }
+                            else{
+                                    JOptionPane.showMessageDialog(listPedido, mensaje);
+                                }
+                        }
+                    }
+
+                }
+            }
+        }
+      else{
+            JOptionPane.showMessageDialog(listPedido, mensaje);
       }
-//      String nombreReg = formPedido.txtNombre.getText(); 
-//      newPedido.setNombre(nombreReg);
-      //Review this because the code's zona is not generating automatically.
-//      
-      p.insert(newPedido);
-//      
-//
-//
-//
-      vaciarFormulario();
     }
 
     private void eliminarPedido(int eliminar) {
       PedidoDao p = new PedidoDao();
       Pedido pedidoEliminar = new Pedido();
+      String mensaje;
       pedidoEliminar.setId(eliminar);
-      p.delete(pedidoEliminar);
+      mensaje = p.delete(pedidoEliminar);
+      JOptionPane.showMessageDialog(listPedido, mensaje);
       llenarTabla();
     }
 
@@ -348,6 +383,7 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
                     for(Producto producto : productos){
                         if(formPedido.comProducto.getSelectedItem().equals(producto.getNombre())){
                             formPedido.txtPrecio.setText(Double.toString(producto.getPrecio()));
+                            formPedido.txtStock.setText(Integer.toString(producto.getStock()));
                         }
                     }
                 }
@@ -367,6 +403,7 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
         formPedido.txtZona.setText(pedidoEditar.getCliente().getZona().getNombre());
         formPedido.comProducto.select(pedidoEditar.getProducto().getNombre());
         formPedido.txtCantidad.setText(String.valueOf(pedidoEditar.getCantidad()));
+        formPedido.txtStock.setText(String.valueOf(pedidoEditar.getProducto().getStock()));
         formPedido.txtPrecio.setText(String.valueOf(pedidoEditar.getProducto().getPrecio()));
         formPedido.txtTotal.setText(String.valueOf(pedidoEditar.getTotal()));
     }
@@ -378,20 +415,44 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
         Double precio = 0.0;
         Double total = 0.0;
     //  if(!(cantidadCadena != null && !cantidadCadena.trim().isEmpty()) || (precioCadena != null && !precioCadena.trim().isEmpty())){
-        if(!((cantidadCadena.isEmpty()) && (precioCadena.isEmpty()))){
+        if(!cantidadCadena.equals("") && !precioCadena.equals("")){
             System.out.println(Integer.parseInt(formPedido.txtCantidad.getText()));
             cantidad = Integer.parseInt(formPedido.txtCantidad.getText());
             precio = Double.parseDouble(formPedido.txtPrecio.getText());
             total = precio*cantidad;
             formPedido.txtTotal.setText(total.toString());
+        } else {
         }
     }
-//  Method to become '0' into NO, and '1' into SI  
-    private String ceroFalse(int estado){
-        String res= "NO";
-        if(estado==1) res = "SI" ;
-        if(estado==0) res = "NO" ;
-        return res;
+
+    private String validarCampos(){
+        String mensaje = "";
+        if(formPedido.txtDireccion.getText().equals("") && formPedido.txtZona.getText().equals("")){
+            mensaje += "Debe seleccionar un cliente  \n";
+        }
+        if(formPedido.txtPrecio.getText().equals("") && formPedido.txtStock.getText().equals("")){
+            mensaje += "Debe seleccionar un producto  \n";
+        }
+        if(formPedido.txtCantidad.getText().equals("")){
+            mensaje += "Debe ingresar la cantidad  \n";
+        }
+        
+        return mensaje;
+    }
+    
+    private int calcularStock(int cantidad, Producto prod){
+        return prod.getStock()-cantidad;
+    }
+    
+    private String validarStock(int stockTemporal){
+        String mensaje;
+        if(stockTemporal<0){
+            mensaje = "La cantidad debe ser menor o igual al stock del producto";
+        }
+        else{
+            mensaje = "";
+        }
+        return mensaje;
     }
     
 }

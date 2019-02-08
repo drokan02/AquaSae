@@ -52,8 +52,8 @@ public class ProductoDao implements Dao<Producto>{
         con = conn.getConexion();
         String edit = "UPDATE product SET "
                     + "name  = '" + a.getNombre() + "', "
-                    + "desc = '" + a.getDescripcion() + "', "
-                    + "price = '" + a.getPrecio() + "' "
+//                    + "desc = '"+ a.getDescripcion() +"', "
+                    + "price = '" + a.getPrecio() + "', "
                     + "stock = '" + a.getStock()+ "' "
                     + "WHERE id = " + a.getId() + "";
                
