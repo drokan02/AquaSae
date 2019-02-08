@@ -17,6 +17,7 @@ public class Consola {
         Process p;
         try {
           p = Runtime.getRuntime().exec(cmd);
+          System.out.println(p);
         } catch (Exception e) {
           
         }
