@@ -13,6 +13,19 @@ public class Connector {
   private final String user = "root";
   private final String pass = "";
 
+  public boolean probarConeccion(){
+    boolean res = true;
+    try {
+      Class.forName(JDBC_DRIVER);
+      conexion = DriverManager.getConnection(DB_URL, user, pass);
+    } catch (ClassNotFoundException ex) {
+         System.out.print(ex);
+    } catch (SQLException ex) {
+        res = false;
+        return res;
+    }
+    return res;
+  }
   //metodo para realizar la coneccion
   public final void conectar() {
     Connection con = null;
@@ -25,6 +38,7 @@ public class Connector {
       String error = "Error: " + Errors.errorMessage(ex.getErrorCode(),
               ex.getMessage());
       //JOptionPane.showMessageDialog(null, error, "Mensaje de Error",JOptionPane.ERROR_MESSAGE);
+      System.out.println(error);
     }
   }
 
@@ -37,6 +51,7 @@ public class Connector {
       } catch (SQLException ex) {
         String error = "Error: " + Errors.errorMessage(ex.getErrorCode(),
                 ex.getMessage());
+        System.out.println(error);
         //JOptionPane.showMessageDialog(null, error, "Mensaje de Error",JOptionPane.ERROR_MESSAGE);
       }
     }

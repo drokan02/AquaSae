@@ -102,7 +102,7 @@ public class ProductoController implements KeyListener,ActionListener,MouseListe
             }
         //editar fila
         }else if(columna == 5){
-            formProducto.txtTitulo.setText("EDITAR CLIENTE");
+            formProducto.txtTitulo.setText("EDITAR PRODUCTO");
             formProducto.btnRegistrar.setText("Modificar");
             editarProducto(fila);
             MenuController.cambiarPanel(formProducto);
@@ -186,8 +186,8 @@ public class ProductoController implements KeyListener,ActionListener,MouseListe
     }
     
     private void setTamanioColumna(TableColumnModel col){
-       col.getColumn(0).setPreferredWidth(5);
-       col.getColumn(0).setCellRenderer(Tabla.alinearCentro());
+       col.getColumn(0).setPreferredWidth(50);
+       col.getColumn(0).setCellRenderer(Tabla.alinearDerecha());
        col.getColumn(1).setPreferredWidth(300);
        col.getColumn(1).setCellRenderer(Tabla.alinearCentro());
        col.getColumn(2).setPreferredWidth(300);
@@ -196,8 +196,8 @@ public class ProductoController implements KeyListener,ActionListener,MouseListe
        col.getColumn(3).setCellRenderer(Tabla.alinearDerecha());
        col.getColumn(4).setPreferredWidth(100);
        col.getColumn(4).setCellRenderer(Tabla.alinearDerecha());
-       col.getColumn(5).setPreferredWidth(3);
-       col.getColumn(6).setPreferredWidth(3);
+       col.getColumn(5).setPreferredWidth(50);
+       col.getColumn(6).setPreferredWidth(50);
     }
 
     private void limpiar(){

@@ -97,7 +97,13 @@ public class ZonaDao implements Dao<Zona>{
         conn.desconectar();
       }
     } catch (SQLException ex) {
+      System.out.println(ex.getErrorCode());
       res = Errors.errorMessage(ex.getErrorCode(), ex.getMessage());
+      if(ex.getErrorCode() == 1451){
+              res = "La zona que desea eliminar esta siendo usada por algunos clientes así que no se puede eliminar, Por favor elimine primero los clientes"
+                      + " que estén registrados con esa zona";
+              return res;
+       }
     }
     return res;
     }
@@ -112,7 +118,8 @@ public class ZonaDao implements Dao<Zona>{
     String list = "SELECT id, name "
             + "FROM zone "
             + "WHERE concat(id,' ',name) like '%"
-            + description + "%'";
+            + description + "%' "
+            + "ORDER BY id DESC";
     try {
       st = con.createStatement();
       

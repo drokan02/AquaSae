@@ -189,15 +189,13 @@ public class InicioController implements KeyListener,ActionListener,MouseListene
         };
         vistaInicio.jtPedidos.setDefaultRenderer(Object.class, new Render());
         vistaInicio.jtPedidos.setModel(modelo);
-        modelo.addColumn("N° Pedido");
+        modelo.addColumn("N°");
         modelo.addColumn("Zona");
         modelo.addColumn("Cliente");
         modelo.addColumn("Producto");
         modelo.addColumn("Fecha");
         modelo.addColumn("Cantidad");
         modelo.addColumn("Total");
-        modelo.addColumn("");
-        modelo.addColumn("");
         PedidoDao p = new PedidoDao();
         String descripcion = vistaInicio.txtBuscar.getText();
         pedidos = p.listToDeliver(descripcion);
@@ -205,14 +203,12 @@ public class InicioController implements KeyListener,ActionListener,MouseListene
         for (Pedido pedido : pedidos){
             Object [] fila = new Object[10];
             fila[0] = contador;
-            fila[1] = pedido.getCliente().getZona().getId()+" "+pedido.getCliente().getZona().getNombre();
+            fila[1] = "("+pedido.getCliente().getZona().getId()+") "+pedido.getCliente().getZona().getNombre();
             fila[2] = pedido.getCliente().getNombre()+ " " +pedido.getCliente().getApellidos();
             fila[3] = pedido.getProducto().getNombre();
-            fila[4] = pedido.getFecha_pedido();
+            fila[4] = Complemento.fecha(pedido.getFecha_pedido());
             fila[5] = pedido.getCantidad();
             fila[6] = pedido.getTotal();
-            fila[7] = Principal.btEditar;
-            fila[8] = Principal.btEliminar;
             modelo.addRow(fila);
             contador++;
         }
@@ -271,20 +267,18 @@ public class InicioController implements KeyListener,ActionListener,MouseListene
     private void setTamanioCol(TableColumnModel col) {
       col.getColumn(0).setPreferredWidth(50);
       col.getColumn(0).setCellRenderer(Tabla.alinearCentro());
-      col.getColumn(1).setPreferredWidth(200);
+      col.getColumn(1).setPreferredWidth(150);
       col.getColumn(1).setCellRenderer(Tabla.alinearCentro());
-      col.getColumn(2).setPreferredWidth(200);
+      col.getColumn(2).setPreferredWidth(150);
       col.getColumn(2).setCellRenderer(Tabla.alinearCentro());
-      col.getColumn(3).setPreferredWidth(200);
+      col.getColumn(3).setPreferredWidth(160);
       col.getColumn(3).setCellRenderer(Tabla.alinearCentro());
       col.getColumn(4).setPreferredWidth(100);
       col.getColumn(4).setCellRenderer(Tabla.alinearCentro());
-      col.getColumn(5).setPreferredWidth(50);
+      col.getColumn(5).setPreferredWidth(70);
       col.getColumn(5).setCellRenderer(Tabla.alinearDerecha());
-      col.getColumn(6).setPreferredWidth(50);
+      col.getColumn(6).setPreferredWidth(70);
       col.getColumn(6).setCellRenderer(Tabla.alinearDerecha());
-      col.getColumn(7).setPreferredWidth(5);
-      col.getColumn(8).setPreferredWidth(5);
     }
 
     private void vaciarFormulario() {
@@ -384,7 +378,6 @@ public class InicioController implements KeyListener,ActionListener,MouseListene
         hoy.add(Calendar.DATE, dias);
         Date d = hoy.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
-        JOptionPane.showMessageDialog(principal, sdf.format(d));
         return sdf.format(d);
     }
 }

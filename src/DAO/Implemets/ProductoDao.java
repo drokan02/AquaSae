@@ -46,18 +46,20 @@ public class ProductoDao implements Dao<Producto>{
 
     @Override
     public String edit(Producto a) {
+       
         String res = "";
         conn = new Connector();
         conn.conectar();
         con = conn.getConexion();
         String edit = "UPDATE product SET "
                     + "name  = '" + a.getNombre() + "', "
-//                    + "desc = '"+ a.getDescripcion() +"', "
+                    + "product.desc = '"+a.getDescripcion()+"', "
                     + "price = '" + a.getPrecio() + "', "
                     + "stock = '" + a.getStock()+ "' "
                     + "WHERE id = " + a.getId() + "";
                
         try {
+             System.out.println("producto edidato"+a.getId());
           st = con.createStatement();
           int n = st.executeUpdate(edit) ;
           if (n > 0) {
@@ -65,6 +67,7 @@ public class ProductoDao implements Dao<Producto>{
             res = "Producto modificado correctamente";
           }
         } catch (SQLException ex) {
+             System.out.println("error al editar el producto del pedido"+ex.getMessage());
           res = Errors.errorMessage(ex.getErrorCode(), ex.getMessage());
         }
         return res;
@@ -89,6 +92,11 @@ public class ProductoDao implements Dao<Producto>{
           }
         } catch (SQLException ex) {
           res = Errors.errorMessage(ex.getErrorCode(), ex.getMessage());
+          if(ex.getErrorCode() == 1451){
+              res = "El producto que desea eliminar esta siendo usada por algunos pedidos registados, Por favor elimine primero los pedidos"
+                      + " que estén registrados con ese producto";
+              return res;
+          }
         }
         return res;
     }
@@ -102,7 +110,8 @@ public class ProductoDao implements Dao<Producto>{
         String list = "SELECT * "
                     + "FROM product "
                     + "WHERE concat(name,' ',product.desc,' ',stock) "
-                    + "like '%"+ description + "%'";
+                    + "like '%"+ description + "%' "
+                    + "ORDER BY id DESC";
 
         try {
           st = con.createStatement();

@@ -28,6 +28,7 @@ import java.awt.event.WindowListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import rsbuttom.RSButtonMetro;
@@ -43,16 +44,18 @@ public class MenuController implements ActionListener,WindowListener{
         this.principal = principal;
         pedidos = new ArrayList<>();
         agregarEventos();
+        agregarLogo();
     }
     
     
     public void mostrar(){
         principal.btInicio.requestFocus();
-        principal.setExtendedState(MAXIMIZED_BOTH);
+        //principal.setExtendedState(MAXIMIZED_BOTH);
         VistaInicio inicio = new VistaInicio();
         new InicioController(inicio,principal);
         cambiarPanel(inicio);
         principal.setVisible(true);
+        principal.setLocationRelativeTo(null);
         //principal.setLocationRelativeTo(null);
     }
     
@@ -152,7 +155,7 @@ public class MenuController implements ActionListener,WindowListener{
 
     @Override
     public void windowDeiconified(WindowEvent we) {
-        principal.setExtendedState(MAXIMIZED_BOTH);
+        principal.setVisible(true);
     }
 
     @Override
@@ -229,7 +232,10 @@ public class MenuController implements ActionListener,WindowListener{
         container.revalidate();
         container.repaint();
     }
-    
-}
 
+    private void agregarLogo() {
+        JLabel logo = principal.lbLogo;
+        Complemento.nuevoIcono("logo.png", logo, true);
+    }
+}
 

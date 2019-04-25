@@ -42,37 +42,37 @@ public class FormZona extends javax.swing.JPanel {
         setFocusTraversalPolicyProvider(true);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtTitulo.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
+        txtTitulo.setFont(new java.awt.Font("Roboto", 1, 30)); // NOI18N
         txtTitulo.setForeground(new java.awt.Color(128, 128, 131));
         txtTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtTitulo.setText("REGISTRAR ZONA");
-        add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 77));
+        add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 746, -1));
 
-        txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 640, -1));
+        txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 158, 413, -1));
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel8.setText("Nombre:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, -1, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 158, 96, -1));
 
         btnCancelar.setBackground(new java.awt.Color(102, 102, 102));
-        btnCancelar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnCancelar.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(new javax.swing.border.MatteBorder(null));
         btnCancelar.setFocusPainted(false);
-        add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 440, 640, 30));
+        add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 272, 413, 30));
 
         btnRegistrar.setBackground(new java.awt.Color(51, 51, 255));
-        btnRegistrar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnRegistrar.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("Registrar");
         btnRegistrar.setBorder(new javax.swing.border.MatteBorder(null));
         btnRegistrar.setFocusPainted(false);
-        add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 390, 640, 30));
+        add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 232, 413, 30));
 
-        txtCodigo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 640, -1));
+        txtCodigo.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 413, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 

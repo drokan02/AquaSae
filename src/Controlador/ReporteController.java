@@ -31,7 +31,7 @@ public class ReporteController implements ActionListener
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == report.btnFechas){
+        /*if(e.getSource() == report.btnFechas){
             if(validarEntreFechas()){
                 Map params = new HashMap();
                 params.put("fecha1", formatDate(getDeFecha()));
@@ -39,13 +39,13 @@ public class ReporteController implements ActionListener
                 String reporte = "pedidosEntreFechas";
                 new Reporte().mostrarReporte(reporte, params,principal);
             }
-        }
+        }*/
         
         if(e.getSource() == report.btnFecha){
             if(validarFecha()){
                 Map params = new HashMap();
                 params.put("fecha", formatDate(getFecha()));
-                String reporte = "zonaPedidos";
+                String reporte = "pedidoFecha";
                 new Reporte().mostrarReporte(reporte, params,principal);
             }   
         }
@@ -69,15 +69,15 @@ public class ReporteController implements ActionListener
     }
     
     private void agregarEventos(){
-        report.btnFechas.addActionListener(this);
+       // report.btnFechas.addActionListener(this);
         report.btnFecha.addActionListener(this);
         report.btnAnio.addActionListener(this);
         report.btnMes.addActionListener(this);
-        ((JTextField) report.dtDel.getDateEditor()).setEditable(false); 
-        ((JTextField) report.dtAl.getDateEditor()).setEditable(false); 
+        //((JTextField) report.dtDel.getDateEditor()).setEditable(false); 
+        //((JTextField) report.dtAl.getDateEditor()).setEditable(false); 
     }
 
-    private Date getDeFecha() {
+ /*   private Date getDeFecha() {
         Date d = report.dtDel.getDate();
         return d;
     }
@@ -86,7 +86,7 @@ public class ReporteController implements ActionListener
         Date d = report.dtAl.getDate();
         return d;
     }
-
+*/
     private Date getFecha() {
         Date d = report.dtFecha.getDate();
         return d;
@@ -104,7 +104,6 @@ public class ReporteController implements ActionListener
     }
 
     private String getAnio() {
-        JOptionPane.showMessageDialog(report,report.dtAnio.getYear()+"");
         return report.dtAnio.getYear()+"";
         
     }
@@ -114,7 +113,7 @@ public class ReporteController implements ActionListener
         return sdf.format(date);
     }
      
-    private boolean validarEntreFechas() {
+  /*  private boolean validarEntreFechas() {
         boolean res = true;
        String mensaje = "";
        Date fecha1 = getDeFecha();
@@ -137,7 +136,7 @@ public class ReporteController implements ActionListener
         JOptionPane.showMessageDialog(report,mensaje, "Alerta!", JOptionPane.ERROR_MESSAGE);
        return res;
     }
-    
+    */
     private boolean validarFecha(){
         boolean res = true;
         String mensaje = "";

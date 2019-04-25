@@ -17,7 +17,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import static java.time.Clock.system;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -137,7 +136,7 @@ public class PedidoDao implements Dao<Pedido>{
                 + "WHERE DATE(client_prod.fecha_pedido) = CURDATE() AND concat(client.name,' ',client.surname,' ', zone.name,"
                 + "' ',client_prod.fecha_pedido,' ',client_prod.quantity) like '%"
 //                + description + "%' GROUP BY client_prod.id ORDER BY zone.name ";
-                + description + "%' ORDER BY zone.name ";
+                + description + "%' ORDER BY client_prod.id DESC ,zone.name ";
     try {
       st = con.createStatement();
       
