@@ -99,7 +99,7 @@ public class ClienteDao implements Dao<Cliente>{
         con = conn.getConexion();
         String edit = "UPDATE client_zone SET "
                     + "id_zone  = '" + a.getZona().getId() + "' "
-                     + "WHERE client_zone.id_client = " + a.getId() + "";
+                     + "WHERE client_zone.id_client = " + a.getId()+ "";
                
         try {
           st = con.createStatement();
@@ -172,6 +172,11 @@ public class ClienteDao implements Dao<Cliente>{
           }
         } catch (SQLException ex) {
           res = Errors.errorMessage(ex.getErrorCode(), ex.getMessage());
+          if(ex.getErrorCode() == 1451){
+              res = "El cliente que desea eliminar esta siendo usada por algunos pedidos registados, Por favor elimine primero los pedidos"
+                      + " que estén registrados con ese cliente";
+              return res;
+          }
         }
         return res;
     }
@@ -188,7 +193,8 @@ public class ClienteDao implements Dao<Cliente>{
                     + "INNER JOIN client_zone ON client.id=client_zone.id_client "
                     + "INNER JOIN zone ON client_zone.id_zone=zone.id "
                     + "WHERE concat(client.name,' ',client.surname,' ',client.dir,' ',zone.name,' ',phone) "
-                    + "like '%"+ description + "%'";
+                    + "like '%"+ description + "%' "
+                    + "ORDER BY client.id DESC";
 
         try {
           st = con.createStatement();
@@ -448,4 +454,6 @@ public class ClienteDao implements Dao<Cliente>{
        }
        return res;
     }
+    
+    
 }

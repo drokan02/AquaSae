@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Vista.Clientes.*;
 import Vista.Pedido.*;
 import Vista.*;
 
@@ -30,24 +31,46 @@ public class VistaInicio extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btEditar = new javax.swing.JButton();
+        btTelefonos = new javax.swing.JButton();
+        btEliminar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtBuscar = new javax.swing.JTextField();
         jsClientes = new javax.swing.JScrollPane();
         jtPedidos = new rojerusan.RSTableMetro();
+        txtBuscar = new javax.swing.JTextField();
         btnImprimir = new javax.swing.JButton();
+
+        btEditar.setBackground(new java.awt.Color(255, 51, 0));
+        btEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Edit_Property_26px.png"))); // NOI18N
+        btEditar.setBorderPainted(false);
+        btEditar.setContentAreaFilled(false);
+        btEditar.setFocusPainted(false);
+        btEditar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Edit_Property_26px.png"))); // NOI18N
+
+        btTelefonos.setBackground(new java.awt.Color(255, 51, 0));
+        btTelefonos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Office_Phone_26px.png"))); // NOI18N
+        btTelefonos.setBorderPainted(false);
+        btTelefonos.setContentAreaFilled(false);
+        btTelefonos.setFocusPainted(false);
+        btTelefonos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Office_Phone_26px.png"))); // NOI18N
+
+        btEliminar.setBackground(new java.awt.Color(255, 51, 0));
+        btEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Close_Window_26px_5.png"))); // NOI18N
+        btEliminar.setBorderPainted(false);
+        btEliminar.setContentAreaFilled(false);
+        btEliminar.setFocusPainted(false);
+        btEliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Close_Window_26px_5.png"))); // NOI18N
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel7.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Roboto", 1, 30)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(128, 128, 131));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("PEDIDOS PARA ENTREGAR");
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel1.setText("Buscar:");
-
-        txtBuscar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
         jsClientes.setBorder(null);
 
@@ -67,13 +90,17 @@ public class VistaInicio extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtPedidos.setAltoHead(30);
         jtPedidos.setFuenteFilas(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jtPedidos.setFuenteHead(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jtPedidos.setGridColor(new java.awt.Color(102, 102, 102));
         jtPedidos.setGrosorBordeFilas(0);
         jtPedidos.setGrosorBordeHead(0);
-        jtPedidos.setRowHeight(30);
+        jtPedidos.setRowHeight(20);
         jtPedidos.getTableHeader().setReorderingAllowed(false);
         jsClientes.setViewportView(jtPedidos);
+
+        txtBuscar.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
         btnImprimir.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Print_50px_1.png"))); // NOI18N
@@ -93,40 +120,42 @@ public class VistaInicio extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1630, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(143, 143, 143)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
                         .addComponent(jLabel1)
-                        .addGap(12, 12, 12)
-                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(740, 740, 740)
+                        .addGap(5, 5, 5)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnImprimir))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(182, 182, 182)
-                        .addComponent(jsClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                    .addComponent(jsClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 767, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(72, Short.MAX_VALUE))
+            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel7)
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnImprimir)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(9, 9, 9)
-                .addComponent(jsClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnImprimir))
+                .addGap(13, 13, 13)
+                .addComponent(jsClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btEditar;
+    public javax.swing.JButton btEliminar;
+    public javax.swing.JButton btTelefonos;
     public javax.swing.JButton btnImprimir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;

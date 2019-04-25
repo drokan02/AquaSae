@@ -38,6 +38,7 @@ public class ClienteController implements KeyListener,ActionListener,MouseListen
     private Cliente cli;
     public ClienteController(ListaCliente listCliente){
         this.listCliente = listCliente;
+       
         this.formCliente = new FormCliente();
         agregarEventos();
         llenarTabla();
@@ -114,7 +115,7 @@ public class ClienteController implements KeyListener,ActionListener,MouseListen
         int fila = listCliente.jtClientes.rowAtPoint(me.getPoint());
         int columna = listCliente.jtClientes.columnAtPoint(me.getPoint());
         //eliminar fila
-        if( columna == 7){
+        if( columna == 7) {
             int resp = JOptionPane.showConfirmDialog(listCliente, "¿Esta seguro de Eliminar?", "Alerta!", 
                                                     JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
             if(resp == 0){
@@ -168,8 +169,8 @@ public class ClienteController implements KeyListener,ActionListener,MouseListen
         listCliente.txtBuscar.addKeyListener(this);
         
         formCliente.setFocusTraversalPolicy(new FocusTraversalOnArray(
-                new Component[]{formCliente.txtNombre, formCliente.txtApellido,
-                    formCliente.txtDireccion,formCliente.comZona,formCliente.txtTelefono,
+                new Component[]{formCliente.txtNombre, formCliente.txtApellido,formCliente.comZona,
+                    formCliente.txtDireccion,formCliente.txtTelefono,
                     formCliente.txtTelefono1,formCliente.txtTelefono2,formCliente.txtTelefono3,
                     formCliente.txtTelefono4
                 })
@@ -214,8 +215,8 @@ public class ClienteController implements KeyListener,ActionListener,MouseListen
         modelo.addColumn("N°");
         modelo.addColumn("Nombre");
         modelo.addColumn("Apellidos");
-        modelo.addColumn("Direccion");
         modelo.addColumn("Zona");
+        modelo.addColumn("Direccion");
         modelo.addColumn(" ");
         modelo.addColumn(" ");
         modelo.addColumn(" ");
@@ -226,8 +227,8 @@ public class ClienteController implements KeyListener,ActionListener,MouseListen
             fila[0] = cont++;
             fila[1] = cliente.getNombre();
             fila[2] = cliente.getApellidos();
-            fila[3] = cliente.getDireccion();
-            fila[4] = cliente.getZona().getNombre();
+            fila[3] = cliente.getZona().getNombre();
+            fila[4] = cliente.getDireccion();
             fila[5] = Principal.btTelefonos;
             fila[6] = Principal.btEditar;
             fila[7] = Principal.btEliminar;
@@ -237,19 +238,19 @@ public class ClienteController implements KeyListener,ActionListener,MouseListen
     }
     
     private void setTamanioColumna(TableColumnModel col){
-       col.getColumn(0).setPreferredWidth(5);
-       col.getColumn(0).setCellRenderer(Tabla.alinearCentro());
+       col.getColumn(0).setPreferredWidth(50);
+       col.getColumn(0).setCellRenderer(Tabla.alinearDerecha());
        col.getColumn(1).setPreferredWidth(200);
        col.getColumn(1).setCellRenderer(Tabla.alinearCentro());
-       col.getColumn(2).setPreferredWidth(200);
+       col.getColumn(2).setPreferredWidth(150);
        col.getColumn(2).setCellRenderer(Tabla.alinearCentro());
-       col.getColumn(3).setPreferredWidth(150);
+       col.getColumn(3).setPreferredWidth(130);
        col.getColumn(3).setCellRenderer(Tabla.alinearCentro());
-       col.getColumn(4).setPreferredWidth(150);
+       col.getColumn(4).setPreferredWidth(170);
        col.getColumn(4).setCellRenderer(Tabla.alinearCentro());
-       col.getColumn(5).setPreferredWidth(3);
-       col.getColumn(6).setPreferredWidth(3);
-       col.getColumn(7).setPreferredWidth(3);
+       col.getColumn(5).setPreferredWidth(50);
+       col.getColumn(6).setPreferredWidth(50);
+       col.getColumn(7).setPreferredWidth(50);
     }
     
     private void registrarCliente(){

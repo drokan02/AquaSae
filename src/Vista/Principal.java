@@ -50,7 +50,7 @@ public class Principal extends javax.swing.JFrame {
         btInicio = new rsbuttom.RSButtonMetro();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lbLogo = new javax.swing.JLabel();
         btProductos = new rsbuttom.RSButtonMetro();
         btClientes = new rsbuttom.RSButtonMetro();
         btPedidos = new rsbuttom.RSButtonMetro();
@@ -108,40 +108,20 @@ public class Principal extends javax.swing.JFrame {
         btInicio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btInicio.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btInicio.setIconTextGap(25);
-        pnlMenu.add(btInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 260, 50));
+        pnlMenu.add(btInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 180, 50));
 
         jPanel4.setBackground(new java.awt.Color(239, 238, 244));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(128, 128, 131));
         jLabel1.setText("MENU");
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 217, -1, -1));
 
-        jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbLogo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel4.add(lbLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 10, 180, 150));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 190, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap())
-        );
-
-        pnlMenu.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 258, -1));
+        pnlMenu.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 180, -1));
 
         btProductos.setBackground(new java.awt.Color(239, 238, 244));
         btProductos.setForeground(new java.awt.Color(128, 128, 131));
@@ -156,7 +136,7 @@ public class Principal extends javax.swing.JFrame {
         btProductos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btProductos.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btProductos.setIconTextGap(19);
-        pnlMenu.add(btProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 260, 50));
+        pnlMenu.add(btProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 180, 50));
 
         btClientes.setBackground(new java.awt.Color(239, 238, 244));
         btClientes.setForeground(new java.awt.Color(128, 128, 131));
@@ -171,7 +151,7 @@ public class Principal extends javax.swing.JFrame {
         btClientes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btClientes.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btClientes.setIconTextGap(25);
-        pnlMenu.add(btClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 260, 50));
+        pnlMenu.add(btClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 180, 50));
 
         btPedidos.setBackground(new java.awt.Color(239, 238, 244));
         btPedidos.setForeground(new java.awt.Color(128, 128, 131));
@@ -186,7 +166,7 @@ public class Principal extends javax.swing.JFrame {
         btPedidos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btPedidos.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btPedidos.setIconTextGap(19);
-        pnlMenu.add(btPedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 260, 50));
+        pnlMenu.add(btPedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 180, 50));
 
         btReporte.setBackground(new java.awt.Color(239, 238, 244));
         btReporte.setForeground(new java.awt.Color(128, 128, 131));
@@ -206,7 +186,7 @@ public class Principal extends javax.swing.JFrame {
                 btReporteActionPerformed(evt);
             }
         });
-        pnlMenu.add(btReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 260, 50));
+        pnlMenu.add(btReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 180, 50));
 
         btZonas.setBackground(new java.awt.Color(239, 238, 244));
         btZonas.setForeground(new java.awt.Color(128, 128, 131));
@@ -221,7 +201,7 @@ public class Principal extends javax.swing.JFrame {
         btZonas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btZonas.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btZonas.setIconTextGap(25);
-        pnlMenu.add(btZonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 260, 50));
+        pnlMenu.add(btZonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 180, 50));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -258,7 +238,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("AquaSae");
+        jLabel2.setText("AquaSale");
 
         btCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Delete_25px.png"))); // NOI18N
         btCerrar.setBorder(null);
@@ -285,7 +265,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 718, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 969, Short.MAX_VALUE)
                 .addComponent(btMinim, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -317,6 +297,7 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane1.setBorder(null);
 
         pnlPrincipal.setBackground(new java.awt.Color(255, 255, 255));
+        pnlPrincipal.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         pnlPrincipal.setLayout(new javax.swing.BoxLayout(pnlPrincipal, javax.swing.BoxLayout.LINE_AXIS));
         jScrollPane1.setViewportView(pnlPrincipal);
 
@@ -324,11 +305,15 @@ public class Principal extends javax.swing.JFrame {
         pnlCentro.setLayout(pnlCentroLayout);
         pnlCentroLayout.setHorizontalGroup(
             pnlCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addGroup(pnlCentroLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1039, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlCentroLayout.setVerticalGroup(
             pnlCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addGroup(pnlCentroLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -355,13 +340,13 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
-        //x = evt.getX();
-        //y = evt.getY();
+        x = evt.getX();
+        y = evt.getY();
     }//GEN-LAST:event_jPanel2MousePressed
 
     private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
-        //Point mueve = MouseInfo.getPointerInfo().getLocation();
-        //this.setLocation(mueve.x - x, mueve.y - y);
+        Point mueve = MouseInfo.getPointerInfo().getLocation();
+        this.setLocation(mueve.x - x, mueve.y - y);
     }//GEN-LAST:event_jPanel2MouseDragged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -432,11 +417,11 @@ public class Principal extends javax.swing.JFrame {
     public javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    public javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JLabel lbLogo;
     private javax.swing.JPanel pnlCentro;
     private javax.swing.JPanel pnlMenu;
     public static javax.swing.JPanel pnlPrincipal;

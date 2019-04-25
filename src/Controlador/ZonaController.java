@@ -188,10 +188,13 @@ public class ZonaController implements KeyListener,ActionListener,MouseListener{
     }
     
     private void setTamanioCol(TableColumnModel col){
-       col.getColumn(0).setPreferredWidth(5);
-       col.getColumn(1).setPreferredWidth(900);
-       col.getColumn(2).setPreferredWidth(5);
-       col.getColumn(3).setPreferredWidth(5);
+       
+       col.getColumn(0).setPreferredWidth(10);
+       col.getColumn(0).setCellRenderer(Complemento.alinearDer());
+       col.getColumn(1).setPreferredWidth(600);
+       col.getColumn(1).setCellRenderer(Complemento.alinearCentro());
+       col.getColumn(2).setPreferredWidth(20);
+       col.getColumn(3).setPreferredWidth(20);
     }
     
     private void registrarZona(){

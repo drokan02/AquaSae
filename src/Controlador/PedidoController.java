@@ -58,7 +58,11 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
     }
     
     @Override
-    public void keyTyped(KeyEvent ke) {
+    public void keyTyped(KeyEvent e) {
+        if(e.getSource() == formPedido.txtCantidad){
+             Validador.validarNumero(e);
+                 
+            }
     }
 
     @Override
@@ -75,10 +79,7 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
              Validador.validarLetrasMasEspacioMasNumero(e);
              llenarTabla();
             }
-             if(e.getSource() == formPedido.txtCantidad){
-             Validador.validarNumero(e);
-                 
-            }
+             
             
     }
 
@@ -124,7 +125,7 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
             int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro de Eliminar?", "Alerta!", 
                                                     JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
             if( resp == 0){
-                eliminarPedido(aux.getId());
+                eliminarPedido(aux);
             }            
         }else if(columna == 7){
             // Check dates to edit
@@ -232,7 +233,7 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
         };
         listPedido.jtPedidos.setDefaultRenderer(Object.class, new Render());
         listPedido.jtPedidos.setModel(modelo);
-        modelo.addColumn("N° Pedido");
+        modelo.addColumn("N°");
         modelo.addColumn("Zona");
         modelo.addColumn("Cliente");
         modelo.addColumn("Producto");
@@ -248,10 +249,10 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
         for (Pedido pedido : pedidos){
             Object [] fila = new Object[10];
             fila[0] = contador;
-            fila[1] = pedido.getCliente().getZona().getId()+" "+pedido.getCliente().getZona().getNombre();
+            fila[1] = "("+pedido.getCliente().getZona().getId()+") "+pedido.getCliente().getZona().getNombre();
             fila[2] = pedido.getCliente().getNombre()+ " " +pedido.getCliente().getApellidos();
             fila[3] = pedido.getProducto().getNombre();
-            fila[4] = pedido.getFecha_pedido();
+            fila[4] = Complemento.fecha(pedido.getFecha_pedido());
             fila[5] = pedido.getCantidad();
             fila[6] = pedido.getTotal();
             fila[7] = Principal.btEditar;
@@ -285,6 +286,7 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
                                     newPedido.setCliente(cliente);
                                     newPedido.setProducto(producto);
                                     producto.setStock(stockTemporal);
+                                    new ProductoDao().edit(producto);
                                     newPedido.setTotal(Double.parseDouble(formPedido.txtTotal.getText()));
                                     mensaje = p.insert(newPedido);
 //                                    mensaje= mensaje +"\n" +new ProductoDao().edit(producto);
@@ -308,12 +310,14 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
       }
     }
 
-    private void eliminarPedido(int eliminar) {
+    private void eliminarPedido(Pedido pedido) {
       PedidoDao p = new PedidoDao();
-      Pedido pedidoEliminar = new Pedido();
-      String mensaje;
-      pedidoEliminar.setId(eliminar);
-      mensaje = p.delete(pedidoEliminar);
+      ProductoDao prodDaw =  new ProductoDao();
+      Producto producto =  prodDaw.search(pedido.getProducto());
+      int stock =  producto.getStock()+pedido.getCantidad();
+      producto.setStock(stock);
+      prodDaw.edit(producto);
+      String mensaje = p.delete(pedido);
       JOptionPane.showMessageDialog(listPedido, mensaje);
       llenarTabla();
     }
@@ -321,20 +325,20 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
     private void setTamanioCol(TableColumnModel col) {
       col.getColumn(0).setPreferredWidth(50);
       col.getColumn(0).setCellRenderer(Tabla.alinearCentro());
-      col.getColumn(1).setPreferredWidth(200);
+      col.getColumn(1).setPreferredWidth(120);
       col.getColumn(1).setCellRenderer(Tabla.alinearCentro());
-      col.getColumn(2).setPreferredWidth(200);
+      col.getColumn(2).setPreferredWidth(150);
       col.getColumn(2).setCellRenderer(Tabla.alinearCentro());
-      col.getColumn(3).setPreferredWidth(200);
+      col.getColumn(3).setPreferredWidth(150);
       col.getColumn(3).setCellRenderer(Tabla.alinearCentro());
       col.getColumn(4).setPreferredWidth(100);
       col.getColumn(4).setCellRenderer(Tabla.alinearCentro());
-      col.getColumn(5).setPreferredWidth(50);
+      col.getColumn(5).setPreferredWidth(70);
       col.getColumn(5).setCellRenderer(Tabla.alinearDerecha());
-      col.getColumn(6).setPreferredWidth(50);
+      col.getColumn(6).setPreferredWidth(70);
       col.getColumn(6).setCellRenderer(Tabla.alinearDerecha());
-      col.getColumn(7).setPreferredWidth(5);
-      col.getColumn(8).setPreferredWidth(5);
+      col.getColumn(7).setPreferredWidth(50);
+      col.getColumn(8).setPreferredWidth(50);
     }
 
     private void vaciarFormulario() {
@@ -343,6 +347,7 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
         formPedido.txtPrecio.setText("");
         formPedido.txtTotal.setText("");
         formPedido.txtZona.setText("");
+        formPedido.txtStock.setText("");
         formPedido.comCliente.removeAll();
         formPedido.comProducto.removeAll();
         
@@ -353,11 +358,11 @@ public class PedidoController implements KeyListener,ActionListener,MouseListene
         clientes = c.list("");
         ProductoDao p = new ProductoDao();
         productos = p.list("");
-        
+        formPedido.comCliente.addItem("");
          for(Cliente cliente : clientes){
             formPedido.comCliente.addItem(cliente.getNombre()+" "+ cliente.getApellidos());
         }
-        
+        formPedido.comProducto.add("");
         for(Producto producto : productos){
             formPedido.comProducto.add(producto.getNombre());
         }

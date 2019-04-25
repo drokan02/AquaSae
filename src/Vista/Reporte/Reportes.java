@@ -32,104 +32,36 @@ public class Reportes extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel7 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        btnAnio = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        dtMes = new com.toedter.calendar.JMonthChooser();
-        dtAnio = new com.toedter.calendar.JYearChooser();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        dtMAnio = new com.toedter.calendar.JYearChooser();
-        btnFechas = new javax.swing.JButton();
         btnFecha = new javax.swing.JButton();
-        btnMes = new javax.swing.JButton();
         dtFecha = new com.toedter.calendar.JDateChooser();
-        dtDel = new com.toedter.calendar.JDateChooser();
-        dtAl = new com.toedter.calendar.JDateChooser();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        dtMes = new com.toedter.calendar.JMonthChooser();
+        jLabel10 = new javax.swing.JLabel();
+        btnMes = new javax.swing.JButton();
+        dtMAnio = new com.toedter.calendar.JYearChooser();
+        jPanel3 = new javax.swing.JPanel();
+        btnAnio = new javax.swing.JButton();
+        dtAnio = new com.toedter.calendar.JYearChooser();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setFocusable(false);
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Roboto", 1, 30)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(128, 128, 131));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("REPORTES");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1630, 77));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel1.setText("Reporte de pedidos Anual");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 570, -1, -1));
-
-        btnAnio.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnAnio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Print_50px_1.png"))); // NOI18N
-        btnAnio.setText("Imprimir");
-        btnAnio.setBorder(null);
-        btnAnio.setBorderPainted(false);
-        btnAnio.setContentAreaFilled(false);
-        btnAnio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAnio.setFocusPainted(false);
-        btnAnio.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        btnAnio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnAnio.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Print_50px.png"))); // NOI18N
-        btnAnio.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        add(btnAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 590, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel2.setText("Año:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 610, -1, 30));
-
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel3.setText("Del :");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, -1, 30));
-
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel4.setText("Reporte de pedidos entre fechas");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel5.setText("Hasta :");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 240, -1, 30));
-
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel6.setText("Reporte de pedidos por fecha");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel8.setText("Fecha:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 350, -1, 30));
-
-        dtMes.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(dtMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 470, -1, 30));
-        add(dtAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 610, -1, 30));
-
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel9.setText("Reporte de pedidos mensual");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, -1, -1));
-
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel10.setText("Mes:");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, -1, 30));
-        add(dtMAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 470, -1, 30));
-
-        btnFechas.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnFechas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Print_50px_1.png"))); // NOI18N
-        btnFechas.setText("Imprimir");
-        btnFechas.setBorder(null);
-        btnFechas.setBorderPainted(false);
-        btnFechas.setContentAreaFilled(false);
-        btnFechas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnFechas.setFocusPainted(false);
-        btnFechas.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        btnFechas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnFechas.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Print_50px.png"))); // NOI18N
-        btnFechas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        add(btnFechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 190, -1, -1));
 
         btnFecha.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnFecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Print_50px_1.png"))); // NOI18N
@@ -143,7 +75,50 @@ public class Reportes extends javax.swing.JPanel {
         btnFecha.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnFecha.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Print_50px.png"))); // NOI18N
         btnFecha.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        add(btnFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 330, -1, -1));
+
+        dtFecha.setDateFormatString("dd-MM-yyyy");
+        dtFecha.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addComponent(btnFecha)
+                .addGap(39, 39, 39))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(dtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel9.setText("Reporte de pedidos mensual");
+
+        dtMes.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel10.setText("Mes:");
 
         btnMes.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnMes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Print_50px_1.png"))); // NOI18N
@@ -157,42 +132,140 @@ public class Reportes extends javax.swing.JPanel {
         btnMes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnMes.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Print_50px.png"))); // NOI18N
         btnMes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        add(btnMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 460, -1, -1));
 
-        dtFecha.setDateFormatString("dd-MM-yyyy");
-        dtFecha.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(dtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 350, 290, 30));
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel9))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(dtMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(dtMAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(btnMes)
+                .addGap(36, 36, 36))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnMes)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(dtMAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dtMes, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
-        dtDel.setDateFormatString("dd-MM-yyyy");
-        dtDel.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(dtDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 190, 290, 30));
+        btnAnio.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnAnio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Print_50px_1.png"))); // NOI18N
+        btnAnio.setText("Imprimir");
+        btnAnio.setBorder(null);
+        btnAnio.setBorderPainted(false);
+        btnAnio.setContentAreaFilled(false);
+        btnAnio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAnio.setFocusPainted(false);
+        btnAnio.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        btnAnio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAnio.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Print_50px.png"))); // NOI18N
+        btnAnio.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        dtAl.setDateFormatString("dd-MM-yyyy");
-        dtAl.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(dtAl, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 240, 290, 30));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel1.setText("Reporte de pedidos Anual");
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel2.setText("Año:");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(dtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
+                .addComponent(btnAnio)
+                .addGap(33, 33, 33))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAnio)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(dtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(194, 194, 194)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(162, Short.MAX_VALUE))
+            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel7)
+                .addGap(127, 127, 127)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAnio;
     public javax.swing.JButton btnFecha;
-    public javax.swing.JButton btnFechas;
     public javax.swing.JButton btnMes;
-    public com.toedter.calendar.JDateChooser dtAl;
     public com.toedter.calendar.JYearChooser dtAnio;
-    public com.toedter.calendar.JDateChooser dtDel;
     public com.toedter.calendar.JDateChooser dtFecha;
     public com.toedter.calendar.JYearChooser dtMAnio;
     public com.toedter.calendar.JMonthChooser dtMes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

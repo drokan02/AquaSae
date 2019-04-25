@@ -62,17 +62,14 @@ public class ListaCliente extends javax.swing.JPanel {
         btEliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Close_Window_26px_5.png"))); // NOI18N
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Roboto", 1, 30)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(128, 128, 131));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("CLIENTES");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1630, 77));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel1.setText("Buscar:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, -1, -1));
 
         jsClientes.setBorder(null);
 
@@ -92,18 +89,17 @@ public class ListaCliente extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtClientes.setAltoHead(30);
         jtClientes.setFuenteFilas(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jtClientes.setFuenteHead(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jtClientes.setGridColor(new java.awt.Color(102, 102, 102));
         jtClientes.setGrosorBordeFilas(0);
         jtClientes.setGrosorBordeHead(0);
-        jtClientes.setRowHeight(30);
+        jtClientes.setRowHeight(25);
         jtClientes.getTableHeader().setReorderingAllowed(false);
         jsClientes.setViewportView(jtClientes);
 
-        add(jsClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 210, 1280, 740));
-
-        txtBuscar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 410, -1));
+        txtBuscar.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
 
         btnCliente.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Add_User_Male_50px.png"))); // NOI18N
@@ -117,7 +113,41 @@ public class ListaCliente extends javax.swing.JPanel {
         btnCliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCliente.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Add_User_Male_50px_1.png"))); // NOI18N
         btnCliente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        add(btnCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1370, 130, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(143, 143, 143)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(5, 5, 5)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(364, 364, 364)
+                        .addComponent(btnCliente))
+                    .addComponent(jsClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 767, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(116, Short.MAX_VALUE))
+            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel7)
+                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCliente))
+                .addGap(13, 13, 13)
+                .addComponent(jsClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 

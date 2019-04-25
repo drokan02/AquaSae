@@ -45,61 +45,103 @@ public class FormProducto extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setFocusTraversalPolicyProvider(true);
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtTitulo.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
+        txtTitulo.setFont(new java.awt.Font("Roboto", 1, 30)); // NOI18N
         txtTitulo.setForeground(new java.awt.Color(128, 128, 131));
         txtTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtTitulo.setText("REGISTRAR PRODUCTO");
-        add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 77));
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel6.setText("Bs/Unidad");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 420, -1, -1));
 
-        txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 640, -1));
+        txtNombre.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel2.setText("Tipo:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel2.setText("Descripcion:");
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel3.setText("Stock:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel5.setText("Precio:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, -1, -1));
 
-        txtStock.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 640, -1));
+        txtStock.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
 
-        txtPrecio.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 550, -1));
+        txtPrecio.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel8.setText("Nombre:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, -1, -1));
 
         btnCancelar.setBackground(new java.awt.Color(102, 102, 102));
-        btnCancelar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnCancelar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(new javax.swing.border.MatteBorder(null));
         btnCancelar.setFocusPainted(false);
-        add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 540, 640, 30));
 
         btnRegistrar.setBackground(new java.awt.Color(51, 51, 255));
-        btnRegistrar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnRegistrar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("Registrar");
         btnRegistrar.setBorder(new javax.swing.border.MatteBorder(null));
         btnRegistrar.setFocusPainted(false);
-        add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 640, 30));
 
-        txtDescripcion.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 640, -1));
+        txtDescripcion.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 879, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel2))
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(txtTitulo)
+                .addGap(118, 118, 118)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(32, 32, 32)
+                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 

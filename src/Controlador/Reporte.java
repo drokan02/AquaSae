@@ -11,6 +11,7 @@ import java.awt.Dimension;
 import java.sql.Connection;
 import java.util.Map;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -33,7 +34,9 @@ public class Reporte {
       conn = new Connector();
       conn.conectar();
       con = conn.getConexion();
-      String report = System.getProperty("user.dir") + "\\src\\Reportes\\"+reporte+".jrxml";
+      String report = System.getProperty("user.dir") + "\\Reportes\\"+reporte+".jrxml";
+      String logo = System.getProperty("user.dir") + "\\img\\logo.png";
+      parametros.put("imagen", logo);
       try
       {
         JasperReport jr = JasperCompileManager.compileReport(report);
@@ -54,6 +57,6 @@ public class Reporte {
     
     private  void crearVentana(Principal principal){
         ventana = new JDialog(principal,"Reporte", true);
-        ventana.setPreferredSize(new Dimension(1000, 1000));
+        ventana.setPreferredSize(new Dimension(700, 700));
     }
 }
